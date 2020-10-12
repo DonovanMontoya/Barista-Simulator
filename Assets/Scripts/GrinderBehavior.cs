@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class GrinderBehavior : MonoBehaviour
@@ -40,6 +39,10 @@ public class GrinderBehavior : MonoBehaviour
         resetTag.SetActive(false);
 
         PickNewGrindTask();
+    }
+    public void ResetButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void PickNewGrindTask()
@@ -142,10 +145,5 @@ public class GrinderBehavior : MonoBehaviour
             Debug.Log("FALSE");
         }
         Debug.Log("Grinder is Grinding, grinderValue is " + grindValue);
-    }
-
-    public void ResetButton()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
