@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GrinderBehavior : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class GrinderBehavior : MonoBehaviour
     public GameObject incorrectTag;
     public GameObject buttonReset;
     public GameObject resetTag;
+    public GameObject latteDesc;
+    public GameObject espressoDesc;
+    public GameObject pourOverDesc;
+    public GameObject coldBrewDesc;
+    public GameObject frenchPressDesc;
 
     private void Start()
     {
@@ -37,6 +43,11 @@ public class GrinderBehavior : MonoBehaviour
         incorrectTag.SetActive(false);
         buttonReset.SetActive(false);
         resetTag.SetActive(false);
+        latteDesc.SetActive(false);
+        espressoDesc.SetActive(false);
+        pourOverDesc.SetActive(false);
+        coldBrewDesc.SetActive(false);
+        frenchPressDesc.SetActive(false);
 
         PickNewGrindTask();
     }
@@ -57,30 +68,35 @@ public class GrinderBehavior : MonoBehaviour
         {
             SetGrindValue = 2;
             currentGrindTaskColdBrew.SetActive(true);
+            coldBrewDesc.SetActive(true);
         }
         //1 Espresso
         if (DrinkIndexNum == 1)
         {
             SetGrindValue = 0;
             currentGrindTaskEspresso.SetActive(true);
+            espressoDesc.SetActive(true);
         }
         //2 French Press
         if (DrinkIndexNum == 2)
         {
             SetGrindValue = 2;
             currentGrindTaskFrenchPress.SetActive(true);
+            frenchPressDesc.SetActive(true);
         }
         //3 Latte
         if (DrinkIndexNum == 3)
         {
             SetGrindValue = 0;
             currentGrindTaskLatte.SetActive(true);
+            latteDesc.SetActive(true);
         }
         //4 Pour Over
         if (DrinkIndexNum == 4)
         {
             SetGrindValue = 1;
             currentGrindTaskPourOver.SetActive(true);
+            pourOverDesc.SetActive(true);
         }
     }
 
