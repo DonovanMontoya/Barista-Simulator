@@ -28,6 +28,7 @@ public class GrinderBehavior : MonoBehaviour
     public GameObject currentGrindCappuccino;
     public GameObject currentGrindIcedCoffee;
     public GameObject currentGrindMocha;
+    public GameObject currentGrindAmericano;
 
     public GameObject correctTag;
     public GameObject incorrectTag;
@@ -42,6 +43,7 @@ public class GrinderBehavior : MonoBehaviour
     public GameObject capDesc;
     public GameObject icedCoffeeDesc;
     public GameObject mochaDesc;
+    public GameObject americanoDesc;
 
     
     private void Start()
@@ -71,6 +73,8 @@ public class GrinderBehavior : MonoBehaviour
         currentGrindIcedCoffee.SetActive(false);
         currentGrindMocha.SetActive(false);
         mochaDesc.SetActive(false);
+        americanoDesc.SetActive(false);
+        currentGrindAmericano.SetActive(false);
 
         PickNewGrindTask();
     }
@@ -85,13 +89,12 @@ public class GrinderBehavior : MonoBehaviour
         loseScoreText.text = loseScore.ToString();
         if (score == 10)
         {
-            Debug.Log("WIN");
-           // SceneManager.UnloadScene(SceneManager.GetActiveScene());
+           // Debug.Log("WIN");
             SceneManager.LoadScene("WinScreen");
         }
         if (loseScore == 10)
         {
-            Debug.Log("LOSE");
+           // Debug.Log("LOSE");
             SceneManager.LoadScene("LoseScreen");
         }
     }
@@ -100,7 +103,7 @@ public class GrinderBehavior : MonoBehaviour
     {
         var used = new HashSet<int>() {};
         Random rand = new Random();
-        int DrinkIndexNum = Random.Range(0, 8 - used.Count);
+        int DrinkIndexNum = Random.Range(0, 9 - used.Count);
 
         Debug.Log(DrinkIndexNum);
         Debug.Log(used);
@@ -179,6 +182,14 @@ public class GrinderBehavior : MonoBehaviour
             mochaDesc.SetActive(true);
             used.Add(8);
         }
+        //9 Americano
+        if (DrinkIndexNum == 9)
+        {
+            SetGrindValue = 1;
+            currentGrindAmericano.SetActive(true);
+            americanoDesc.SetActive(true);
+            used.Add(9);
+        }
     }
 
     public void ChangeGrind(int val)
@@ -198,7 +209,7 @@ public class GrinderBehavior : MonoBehaviour
         currentGrindTextFine.SetActive(true);
         currentGrindTextMedium.SetActive(false);
         currentGrindTextCourse.SetActive(false);
-        Debug.Log("Grinder Set To Fine, Or grinderValue " + grindValue);
+       // Debug.Log("Grinder Set To Fine, Or grinderValue " + grindValue);
     }
 
     public void SetGrindValueMedium()
@@ -209,7 +220,7 @@ public class GrinderBehavior : MonoBehaviour
         currentGrindTextFine.SetActive(false);
         currentGrindTextMedium.SetActive(true);
         currentGrindTextCourse.SetActive(false);
-        Debug.Log("Grinder Set To Medium, Or grinderValue " + grindValue);
+       // Debug.Log("Grinder Set To Medium, Or grinderValue " + grindValue);
     }
 
     public void SetGrindValueCourse()
@@ -220,7 +231,7 @@ public class GrinderBehavior : MonoBehaviour
         currentGrindTextFine.SetActive(false);
         currentGrindTextMedium.SetActive(false);
         currentGrindTextCourse.SetActive(true);
-        Debug.Log("Grinder Set To Course, Or grinderValue " + grindValue);
+       // Debug.Log("Grinder Set To Course, Or grinderValue " + grindValue);
     }
     public void Grind()
     {
@@ -233,7 +244,7 @@ public class GrinderBehavior : MonoBehaviour
             buttonReset.SetActive(true);
             resetTag.SetActive(true);
             score += 1;
-            Debug.Log("CORRECT");
+           // Debug.Log("CORRECT");
         }
         else
         {
@@ -241,8 +252,8 @@ public class GrinderBehavior : MonoBehaviour
             buttonReset.SetActive(true);
             resetTag.SetActive(true);
             loseScore += 1;
-            Debug.Log("FALSE");
+           // Debug.Log("FALSE");
         }
-        Debug.Log("Grinder is Grinding, grinderValue is " + grindValue);
+       // Debug.Log("Grinder is Grinding, grinderValue is " + grindValue);
     }
 }
