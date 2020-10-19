@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GrinderBehavior : MonoBehaviour
 {
     public static int grindValue;
     public static int matchGrindValue;
     public static int SetGrindValue;
+    public static int score;
+    public static int loseScore;
+
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI loseScoreText;
 
     public GameObject currentGrindTextFine;
     public GameObject currentGrindTextMedium;
@@ -18,11 +24,26 @@ public class GrinderBehavior : MonoBehaviour
     public GameObject currentGrindTaskFrenchPress;
     public GameObject currentGrindTaskLatte;
     public GameObject currentGrindTaskPourOver;
+    public GameObject currentGrindEspressoVerte;
+    public GameObject currentGrindCappuccino;
+    public GameObject currentGrindIcedCoffee;
+    public GameObject currentGrindMocha;
+
     public GameObject correctTag;
     public GameObject incorrectTag;
     public GameObject buttonReset;
     public GameObject resetTag;
+    public GameObject latteDesc;
+    public GameObject espressoDesc;
+    public GameObject pourOverDesc;
+    public GameObject coldBrewDesc;
+    public GameObject frenchPressDesc;
+    public GameObject espressoVerteDesc;
+    public GameObject capDesc;
+    public GameObject icedCoffeeDesc;
+    public GameObject mochaDesc;
 
+    
     private void Start()
     {
         currentGrindTextFine.SetActive(false);
@@ -33,10 +54,23 @@ public class GrinderBehavior : MonoBehaviour
         currentGrindTaskFrenchPress.SetActive(false);
         currentGrindTaskLatte.SetActive(false);
         currentGrindTaskPourOver.SetActive(false);
+        currentGrindEspressoVerte.SetActive(false);
         correctTag.SetActive(false);
         incorrectTag.SetActive(false);
         buttonReset.SetActive(false);
         resetTag.SetActive(false);
+        latteDesc.SetActive(false);
+        espressoDesc.SetActive(false);
+        pourOverDesc.SetActive(false);
+        coldBrewDesc.SetActive(false);
+        frenchPressDesc.SetActive(false);
+        espressoVerteDesc.SetActive(false);
+        currentGrindCappuccino.SetActive(false);
+        capDesc.SetActive(false);
+        icedCoffeeDesc.SetActive(false);
+        currentGrindIcedCoffee.SetActive(false);
+        currentGrindMocha.SetActive(false);
+        mochaDesc.SetActive(false);
 
         PickNewGrindTask();
     }
@@ -45,10 +79,31 @@ public class GrinderBehavior : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void Update()
+    {
+        scoreText.text = score.ToString();
+        loseScoreText.text = loseScore.ToString();
+        if (score == 10)
+        {
+            Debug.Log("WIN");
+           // SceneManager.UnloadScene(SceneManager.GetActiveScene());
+            SceneManager.LoadScene("WinScreen");
+        }
+        if (loseScore == 10)
+        {
+            Debug.Log("LOSE");
+            SceneManager.LoadScene("LoseScreen");
+        }
+    }
+
     public void PickNewGrindTask()
     {
+        var used = new HashSet<int>() {};
         Random rand = new Random();
-        int DrinkIndexNum = Random.Range(0, 4);
+        int DrinkIndexNum = Random.Range(0, 8 - used.Count);
+
+        Debug.Log(DrinkIndexNum);
+        Debug.Log(used);
 
         // [0 = Fine] , [1 = Medium] [2 = Course]
 
@@ -57,30 +112,72 @@ public class GrinderBehavior : MonoBehaviour
         {
             SetGrindValue = 2;
             currentGrindTaskColdBrew.SetActive(true);
+            coldBrewDesc.SetActive(true);
+            used.Add(0);
         }
         //1 Espresso
         if (DrinkIndexNum == 1)
         {
             SetGrindValue = 0;
             currentGrindTaskEspresso.SetActive(true);
+            espressoDesc.SetActive(true);
+            used.Add(1);
         }
         //2 French Press
         if (DrinkIndexNum == 2)
         {
             SetGrindValue = 2;
             currentGrindTaskFrenchPress.SetActive(true);
+            frenchPressDesc.SetActive(true);
+            used.Add(2);
         }
         //3 Latte
         if (DrinkIndexNum == 3)
         {
             SetGrindValue = 0;
             currentGrindTaskLatte.SetActive(true);
+            latteDesc.SetActive(true);
+            used.Add(3);
         }
         //4 Pour Over
         if (DrinkIndexNum == 4)
         {
             SetGrindValue = 1;
             currentGrindTaskPourOver.SetActive(true);
+            pourOverDesc.SetActive(true);
+            used.Add(4);
+        }
+        //5 Espresso Verte
+        if (DrinkIndexNum == 5)
+        {
+            SetGrindValue = 0;
+            currentGrindEspressoVerte.SetActive(true);
+            espressoVerteDesc.SetActive(true);
+            used.Add(5);
+        }
+        //6 Cappuccino
+        if (DrinkIndexNum == 6)
+        {
+            SetGrindValue = 0;
+            currentGrindEspressoVerte.SetActive(true);
+            espressoVerteDesc.SetActive(true);
+            used.Add(6);
+        }
+        //7 Iced Coffee
+        if (DrinkIndexNum == 7)
+        {
+            SetGrindValue = 1;
+            currentGrindIcedCoffee.SetActive(true);
+            icedCoffeeDesc.SetActive(true);
+            used.Add(7);
+        }
+        //8 Espresso Mocha
+        if (DrinkIndexNum == 8)
+        {
+            SetGrindValue = 0;
+            currentGrindMocha.SetActive(true);
+            mochaDesc.SetActive(true);
+            used.Add(8);
         }
     }
 
@@ -135,6 +232,7 @@ public class GrinderBehavior : MonoBehaviour
             correctTag.SetActive(true);
             buttonReset.SetActive(true);
             resetTag.SetActive(true);
+            score += 1;
             Debug.Log("CORRECT");
         }
         else
@@ -142,6 +240,7 @@ public class GrinderBehavior : MonoBehaviour
             incorrectTag.SetActive(true);
             buttonReset.SetActive(true);
             resetTag.SetActive(true);
+            loseScore += 1;
             Debug.Log("FALSE");
         }
         Debug.Log("Grinder is Grinding, grinderValue is " + grindValue);
