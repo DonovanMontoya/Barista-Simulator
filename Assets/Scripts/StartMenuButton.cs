@@ -10,7 +10,7 @@ public class StartMenuButton : MonoBehaviour
     {
         SceneManager.LoadScene("Minigame");
         //SceneManager.UnloadScene("Main Menu");
-        GrinderBehavior.score = 0;
-        GrinderBehavior.loseScore = 0;
+        GrinderBehaviorMiniGame.score = 0;
+        GrinderBehaviorMiniGame.loseScore = 0;
     }
 }

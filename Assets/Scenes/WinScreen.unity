@@ -247,7 +247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -521.3193, y: -206.323}
+  m_AnchoredPosition: {x: -522.13605, y: -206.323}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &168108948
@@ -269,8 +269,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "           CONGRATS! YOU'VE WON!\n       You're now a coffee grind MASTER!
-    \n\t     Feel free to play again!"
+  m_text: "           CONGRATS! YOU'VE Beat the Grind  Tutorial!\n                  
+    You're now a coffee grind MASTER! \n\t                Now Lets Get to the Shop."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -336,13 +336,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 1.683188, z: 11.735264, w: -1.5888216}
+  m_margin: {x: 0, y: 1.683188, z: -53.683853, w: -1.5888216}
   m_textInfo:
     textComponent: {fileID: 168108948}
-    characterCount: 105
+    characterCount: 150
     spriteCount: 0
-    spaceCount: 38
-    wordCount: 15
+    spaceCount: 66
+    wordCount: 19
     linkCount: 0
     lineCount: 3
     pageCount: 1
@@ -1517,7 +1517,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2028672712}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1386897442
+--- !u!114 &1386897441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1526,7 +1526,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1386897440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd060484dabec204b8047ff72516f9d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f83f23189d6b7844b178992c3e61cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1424626969
@@ -1954,7 +1954,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -519.6281, y: -206.62106}
+  m_AnchoredPosition: {x: -519.80273, y: -206.62106}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1692213674
@@ -1976,7 +1976,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play Again
+  m_text: To The Main Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2042,13 +2042,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 32.590088, z: 175.80727, w: 10.062768}
+  m_margin: {x: 0, y: 32.590088, z: 156.17947, w: 10.062768}
   m_textInfo:
     textComponent: {fileID: 1692213674}
-    characterCount: 10
+    characterCount: 16
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 3
+    wordCount: 4
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -2599,7 +2599,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1386897442}
+      objectReference: {fileID: 1386897441}
     - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
