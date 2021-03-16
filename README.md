@@ -1,5 +1,5 @@
 # Barista-Simulator
-*Donovan Montoya's GIMM Final Individual Game Repository*
+*Donovan Montoya - [GIMM]Individual Virtual Reality Game Repository*
 
 My game is a VR barista Simulator where the customers ask for what they want without any specific coffee names, just the flavors or textures they want,
 forcing the player to experiment with coffee drinks and helps them learn more about coffee.
