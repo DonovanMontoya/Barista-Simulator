@@ -8,7 +8,7 @@ public class VisualScaler : MonoBehaviour
 
     void Update()
     {
-        //original code
+        //original scaler visualizer
         /*
         var val = VisualizeSoundManager.Instance.bins[bin] * scale;
         transform.localScale = new Vector3(1,val, 1);
