@@ -22,7 +22,7 @@ public class OrderCheck : MonoBehaviour
 
     public void CheckDrink()
     {
-     // We assume the order is correct so that we can compair easier
+     // We assume the order is correct so that we can compair --> easier
         bool isDrinkCorrect = true;
         
      // This Loop compairs the ingrediants between the order and order requirements
@@ -45,7 +45,7 @@ public class OrderCheck : MonoBehaviour
             SaveTotalCorrectCoffees();
     }
 
-    public void EmptyCup()
+    public void EmptyCup() //manually sets values to 0
     {
         coffeeOrder.ingredientTable[Ingredients.EspressoSingle] = 0;
         coffeeOrder.ingredientTable[Ingredients.EspressoDouble] = 0;
