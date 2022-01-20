@@ -8,10 +8,13 @@ public class MooMooMilker5000 : MonoBehaviour
     public Interaction interaction;
     public CoffeeOrderer coffeeOrder;
     public WhatInCupDisplayHandler cupHandler;
-    
+
+    public Animator anim;
+
 
     public void AddSteamedMilk()
     {
+        anim.SetTrigger("StartSqeeze");
         coffeeOrder.ingredientTable[Ingredients.SteamedMilk] += 1;
 
         cupHandler.UpdateList();
