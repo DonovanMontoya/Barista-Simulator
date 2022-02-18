@@ -20,6 +20,8 @@ public class VisualizeSoundManager : Singleton<VisualizeSoundManager> {
         audioSource = GetComponent<AudioSource>();
         samples = new float[sampleNo];
         CreateFrequencyBins();       
+        //this should prevent the music from restarting on reload.
+        DontDestroyOnLoad(this.gameObject);
 	}
 	
 	// Update is called once per frame

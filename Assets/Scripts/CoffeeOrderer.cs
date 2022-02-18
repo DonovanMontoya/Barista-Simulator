@@ -8,7 +8,9 @@ public class CoffeeOrderer : MonoBehaviour
     public List<string> orderRequirements = new List<string>();
     public List<Ingredients> enumRequirements = new List<Ingredients>();
     public string drinkName;
+    // Possible Ingrediants and what is in the cup itself
     public IDictionary<Ingredients, int> ingredientTable = new Dictionary<Ingredients, int>();
+    //Holds the data for what should be in the recipe -- used to check if correct.
     public IDictionary<Ingredients, int> recipeTable = new Dictionary<Ingredients, int>();
 
     public TextMeshProUGUI robotsOrderText;
@@ -28,11 +30,6 @@ public class CoffeeOrderer : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
-
     void SelectRandomOrder()
     {
        
@@ -43,7 +40,7 @@ public class CoffeeOrderer : MonoBehaviour
         if (DrinkIndexNum == 0)
         {
             drinkName = "Latte";
-            robotsOrderText.text = "I would Like An Espresso With Milk";
+            robotsOrderText.text = "Robot Order Prefference: Espresso With Milk";
             recipeTable[Ingredients.EspressoDouble] = 1;
             recipeTable[Ingredients.SteamedMilk] = 1;
             recipeTable[Ingredients.EspressoSingle] = 0;
@@ -53,7 +50,7 @@ public class CoffeeOrderer : MonoBehaviour
         if (DrinkIndexNum == 1)
         {
             drinkName = "Espresso Shot";
-            robotsOrderText.text = "I would Like An Espresso";
+            robotsOrderText.text = "Robot Order Prefference: An Espresso";
             recipeTable[Ingredients.EspressoDouble] = 0;
             recipeTable[Ingredients.SteamedMilk] = 0;
             recipeTable[Ingredients.EspressoSingle] = 1;
