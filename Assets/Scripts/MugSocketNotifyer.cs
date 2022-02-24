@@ -7,16 +7,6 @@ public class MugSocketNotifyer : MonoBehaviour
     public bool isMugAttached;
     public GameObject Mug;
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Mug")

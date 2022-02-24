@@ -14,6 +14,8 @@ public class CoffeeOrderer : MonoBehaviour
     public IDictionary<Ingredients, int> recipeTable = new Dictionary<Ingredients, int>();
 
     public TextMeshProUGUI robotsOrderText;
+    public GameObject latterOrderImage;
+    public GameObject espressoOrderImage;
 
     void Start()
     {
@@ -30,7 +32,7 @@ public class CoffeeOrderer : MonoBehaviour
         }
     }
 
-    void SelectRandomOrder()
+    public void SelectRandomOrder()
     {
        
         
@@ -41,6 +43,7 @@ public class CoffeeOrderer : MonoBehaviour
         {
             drinkName = "Latte";
             robotsOrderText.text = "Robot Order Prefference: Espresso With Milk";
+            latterOrderImage.SetActive(true);
             recipeTable[Ingredients.EspressoDouble] = 1;
             recipeTable[Ingredients.SteamedMilk] = 1;
             recipeTable[Ingredients.EspressoSingle] = 0;
@@ -51,6 +54,7 @@ public class CoffeeOrderer : MonoBehaviour
         {
             drinkName = "Espresso Shot";
             robotsOrderText.text = "Robot Order Prefference: An Espresso";
+            espressoOrderImage.SetActive(true);
             recipeTable[Ingredients.EspressoDouble] = 0;
             recipeTable[Ingredients.SteamedMilk] = 0;
             recipeTable[Ingredients.EspressoSingle] = 1;

@@ -9,6 +9,7 @@ public class Interaction : MonoBehaviour
     public WhatInCupDisplayHandler cupHandler;
 
     public bool machineRunning = false;
+    public bool machineRan = false;
     public List<string> whatsInCupList = new List<string>();
 
     void Start()
@@ -37,6 +38,7 @@ public class Interaction : MonoBehaviour
             coffeeOrder.ingredientTable[Ingredients.EspressoSingle] += 1;
             cupHandler.UpdateList();
             OffEsspressoMachine();
+            machineRan = true;
         }
         else
         {
@@ -54,6 +56,7 @@ public class Interaction : MonoBehaviour
             coffeeOrder.ingredientTable[Ingredients.EspressoDouble] += 1;
             cupHandler.UpdateList();
             OffEsspressoMachine();
+            machineRan= true; 
 
 
             //foreach (var item in whatsInCupList)
@@ -77,5 +80,6 @@ public class Interaction : MonoBehaviour
     {
         Debug.Log("Machine Off");
         machineRunning = false;
+        
     }
 }

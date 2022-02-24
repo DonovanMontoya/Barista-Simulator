@@ -15,11 +15,6 @@ public class MachineBehavior : MonoBehaviour
         buttonRight.gameObject.SetActive(false);
     }
 
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Wand")

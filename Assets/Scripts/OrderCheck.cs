@@ -11,6 +11,8 @@ public class OrderCheck : MonoBehaviour
     public TextMeshProUGUI robotsOrderText;
     public TextMeshProUGUI correctCoffeesText;
 
+    CoffeeOrderer coffeeController;
+
     public bool isPairCorrect = false;
     public int correctCoffies;
 
@@ -56,7 +58,9 @@ public class OrderCheck : MonoBehaviour
 
     public void ResetScene()
     {
-        SceneManager.LoadScene("Main");
+       // SceneManager.LoadScene("Main");
+        EmptyCup();
+        coffeeController.SelectRandomOrder();
     }
 
     public void SaveTotalCorrectCoffees()

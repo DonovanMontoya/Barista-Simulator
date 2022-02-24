@@ -37,7 +37,6 @@ public class GrinderBehavior : MonoBehaviour
         
     }
 
-
     public void ChangeGrind(int val)
     {
         grindValue = val;
