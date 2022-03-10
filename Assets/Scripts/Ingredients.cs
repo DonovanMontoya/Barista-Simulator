@@ -7,6 +7,4 @@ public enum Ingredients
     EspressoSingle,
     EspressoDouble,
     SteamedMilk,
-    
-
-}
+    }

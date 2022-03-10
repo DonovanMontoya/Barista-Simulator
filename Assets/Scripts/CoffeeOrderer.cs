@@ -8,6 +8,7 @@ public class CoffeeOrderer : MonoBehaviour
     public List<string> orderRequirements = new List<string>();
     public List<Ingredients> enumRequirements = new List<Ingredients>();
     public string drinkName;
+
     // Possible Ingrediants and what is in the cup itself
     public IDictionary<Ingredients, int> ingredientTable = new Dictionary<Ingredients, int>();
     //Holds the data for what should be in the recipe -- used to check if correct.
@@ -16,6 +17,7 @@ public class CoffeeOrderer : MonoBehaviour
     public TextMeshProUGUI robotsOrderText;
     public GameObject latterOrderImage;
     public GameObject espressoOrderImage;
+    public WhatInCupDisplayHandler cupHandler;
 
     void Start()
     {
@@ -23,7 +25,10 @@ public class CoffeeOrderer : MonoBehaviour
         ingredientTable.Add(Ingredients.SteamedMilk, 0);
         ingredientTable.Add(Ingredients.EspressoSingle, 0);
 
+
+        cupHandler.UpdateList();
         SelectRandomOrder();
+
 
         foreach (KeyValuePair<Ingredients, int> kvp in ingredientTable)
         {
@@ -34,8 +39,6 @@ public class CoffeeOrderer : MonoBehaviour
 
     public void SelectRandomOrder()
     {
-       
-        
         Random rand = new Random();
         int DrinkIndexNum = Random.Range(0, 2);
 
@@ -52,9 +55,9 @@ public class CoffeeOrderer : MonoBehaviour
 
         if (DrinkIndexNum == 1)
         {
-            drinkName = "Espresso Shot";
+            drinkName = "Espresso-Shot";
             robotsOrderText.text = "Robot Order Prefference: An Espresso";
-            espressoOrderImage.SetActive(true);
+            latterOrderImage.SetActive(false);
             recipeTable[Ingredients.EspressoDouble] = 0;
             recipeTable[Ingredients.SteamedMilk] = 0;
             recipeTable[Ingredients.EspressoSingle] = 1;

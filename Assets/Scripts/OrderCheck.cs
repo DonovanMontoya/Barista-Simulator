@@ -25,7 +25,7 @@ public class OrderCheck : MonoBehaviour
     public void CheckDrink()
     {
      // We assume the order is correct so that we can compair --> easier
-        bool isDrinkCorrect = true;
+        bool isDrinkCorrect = false;
         
      // This Loop compairs the ingrediants between the order and order requirements
         foreach (var ingredient in coffeeOrder.recipeTable.Keys)
@@ -34,6 +34,10 @@ public class OrderCheck : MonoBehaviour
             {
                 isDrinkCorrect = false;
                 robotsOrderText.text = "I may not have taste buds, but my analysis says this is incorrect...";
+            }
+            else
+            {
+                isDrinkCorrect= true;
             }
             Debug.Log(ingredient);
         }
@@ -44,7 +48,8 @@ public class OrderCheck : MonoBehaviour
             robotsOrderText.text = "Thats Perfect! Thank you human.";
             correctCoffies += 1;
         }
-            SaveTotalCorrectCoffees();
+        SaveTotalCorrectCoffees();
+        //coffeeController.SelectRandomOrder();
     }
 
     public void EmptyCup() //manually sets values to 0
@@ -58,9 +63,8 @@ public class OrderCheck : MonoBehaviour
 
     public void ResetScene()
     {
-       // SceneManager.LoadScene("Main");
         EmptyCup();
-        coffeeController.SelectRandomOrder();
+        SceneManager.LoadScene("Main");
     }
 
     public void SaveTotalCorrectCoffees()
