@@ -7,6 +7,7 @@ public class WhatInCupDisplayHandler : MonoBehaviour
 {
     public TextMeshProUGUI whatsInCupList;
     public CoffeeOrderer coffeeOrder;
+    bool hasLiquid = false;
 
     private void Start()
     {
