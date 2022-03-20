@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StreamDetector : MonoBehaviour
+public class EspressoStreamDetector : MonoBehaviour
 {
     public Transform origin = null;
     public GameObject streamPrefab = null;

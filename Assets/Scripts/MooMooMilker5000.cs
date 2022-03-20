@@ -11,7 +11,7 @@ public class MooMooMilker5000 : MonoBehaviour
 
     public Animator anim;
 
-
+    
     public void AddSteamedMilk()
     {
         anim.SetTrigger("StartSqeeze");
