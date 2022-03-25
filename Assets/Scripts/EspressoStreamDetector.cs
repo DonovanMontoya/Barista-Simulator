@@ -7,45 +7,29 @@ public class EspressoStreamDetector : MonoBehaviour
     public Transform origin = null;
     public GameObject streamPrefab = null;
 
-    private bool isPouring = false;
     private bool endTimerEnabled = false;
 
     private Stream currentStream = null;
 
-    public float startTime = 1500.0f;
-    public float endTime = 1500.0f;
+    public float endTimer = 60;
 
 
     private void Update()
     {
-        if (isPouring)
-        {
-            startTime -= 0.45f;
-        }
-        if (startTime <= 0.0f && isPouring)
-        {
-            StartPour(); 
-        }
         if (endTimerEnabled)
         {
-            endTime -= 0.45f;
+            endTimer -= 0.45f;
         }
-        if (endTime <= 0.0f)
+        if (endTimer <= 0.0f)
         {
             EndPour();
         }
     }
 
-    public void InteractButtonStart()
-    {
-        isPouring = true;
-    }
-
-    private void StartPour()
+    public void StartPour()
     {
         currentStream = CreateStream();
         currentStream.Begin();
-        isPouring = false;
         EndTimer();
     }
 
@@ -59,10 +43,8 @@ public class EspressoStreamDetector : MonoBehaviour
         currentStream.End();
         currentStream = null;
         //resets these for re-use
-        isPouring = false;
         endTimerEnabled = false;
-        startTime = 30f; 
-        endTime = 60f;
+        endTimer = 60f;
     }
 
     private Stream CreateStream()

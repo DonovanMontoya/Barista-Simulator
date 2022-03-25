@@ -10,6 +10,10 @@ public class Interaction : MonoBehaviour
 
     public GameObject cupLiquid;
 
+    public Color Espresso;
+
+    public bool cupHasEspresso;
+
     public bool machineRunning = false;
     public bool machineRan = false;
     public List<string> whatsInCupList = new List<string>();
@@ -42,7 +46,11 @@ public class Interaction : MonoBehaviour
             OffEsspressoMachine();
             machineRan = true;
             //shows liquid visual object
+
+            var liquidRenderer = cupLiquid.GetComponent<Renderer>();
+            liquidRenderer.material.SetColor("_Color", Espresso);
             cupLiquid.SetActive(true);
+            cupHasEspresso = true;
         }
         else
         {
@@ -62,7 +70,11 @@ public class Interaction : MonoBehaviour
             OffEsspressoMachine();
             machineRan= true;
             //shows liquid visual object
+
+            var liquidRenderer = cupLiquid.GetComponent<Renderer>();
+            liquidRenderer.material.SetColor("_Color", Espresso);
             cupLiquid.SetActive(true);
+            cupHasEspresso = true;
 
 
             //foreach (var item in whatsInCupList)

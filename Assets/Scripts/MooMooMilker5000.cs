@@ -9,6 +9,9 @@ public class MooMooMilker5000 : MonoBehaviour
     public CoffeeOrderer coffeeOrder;
     public WhatInCupDisplayHandler cupHandler;
 
+    public Color latteColor;
+    public Color milkColor;
+
     public Animator anim;
 
     
@@ -18,7 +21,17 @@ public class MooMooMilker5000 : MonoBehaviour
         coffeeOrder.ingredientTable[Ingredients.SteamedMilk] += 1;
 
         cupHandler.UpdateList();
+        var liquidRenderer = interaction.cupLiquid.GetComponent<Renderer>();
 
+        if (coffeeOrder.ingredientTable[Ingredients.EspressoDouble] >= 1)
+        {
+            liquidRenderer.material.SetColor("_Color", latteColor);
+        }
+        else
+        {
+            liquidRenderer.material.SetColor("_Color", milkColor);
+            interaction.cupLiquid.SetActive(true);
+        }
             foreach (KeyValuePair<Ingredients, int> kvp in coffeeOrder.ingredientTable)
         {
             Debug.Log(kvp.Key);
