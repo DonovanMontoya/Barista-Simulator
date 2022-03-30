@@ -5431,6 +5431,7 @@ GameObject:
   - component: {fileID: 504717078}
   - component: {fileID: 504717077}
   - component: {fileID: 504717074}
+  - component: {fileID: 504717079}
   m_Layer: 0
   m_Name: XR Rig
   m_TagString: Untagged
@@ -5516,6 +5517,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Timeout: 10
   m_XRRig: {fileID: 504717075}
+--- !u!114 &504717079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504717073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9350ee456b6f97746860f86628319544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultHeight: 1.8
+  camera: {fileID: 1520330684}
 --- !u!1 &525328779
 GameObject:
   m_ObjectHideFlags: 0
