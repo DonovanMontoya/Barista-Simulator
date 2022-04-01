@@ -20,6 +20,7 @@ public class GrinderBehavior : MonoBehaviour
     public GameObject currentGrindTextMedium;
     public GameObject currentGrindTextCourse;
     public GameObject espressoWand;
+    public GameObject espressoWandEspresso;
 
     public bool wandHasEspresso = false;
 
@@ -85,6 +86,7 @@ public class GrinderBehavior : MonoBehaviour
             if (wandHasEspresso == false)
             {
                 wandHasEspresso = true;
+                espressoWandEspresso.SetActive(true);
                 Debug.Log("Does the Wand have espresso after push: " + wandHasEspresso);
             }
             else

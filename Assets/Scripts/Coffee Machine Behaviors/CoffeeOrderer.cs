@@ -39,13 +39,17 @@ public class CoffeeOrderer : MonoBehaviour
 
     public void SelectRandomOrder()
     {
+        espressoOrderImage.SetActive(false);
+        latterOrderImage.SetActive(false);
+
         Random rand = new Random();
         int DrinkIndexNum = Random.Range(0, 2);
 
         if (DrinkIndexNum == 0)
         {
             drinkName = "Latte";
-            robotsOrderText.text = "Robot Order Prefference: Espresso With Milk";
+            //Looking to see if the order image will be enough here.
+            //robotsOrderText.text = "Robot Order Prefference: Espresso With Milk";
             latterOrderImage.SetActive(true);
             recipeTable[Ingredients.EspressoDouble] = 1;
             recipeTable[Ingredients.SteamedMilk] = 1;
@@ -56,8 +60,9 @@ public class CoffeeOrderer : MonoBehaviour
         if (DrinkIndexNum == 1)
         {
             drinkName = "Espresso-Shot";
-            robotsOrderText.text = "Robot Order Prefference: An Espresso";
-            latterOrderImage.SetActive(false);
+            //Looking to see if the order image will be enough here.
+            //robotsOrderText.text = "Robot Order Prefference: An Espresso";
+            espressoOrderImage.SetActive(true);
             recipeTable[Ingredients.EspressoDouble] = 0;
             recipeTable[Ingredients.SteamedMilk] = 0;
             recipeTable[Ingredients.EspressoSingle] = 1;
