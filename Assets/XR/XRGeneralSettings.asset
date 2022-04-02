@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: iOS Settings
   m_EditorClassIdentifier: 
   m_LoaderManagerInstance: {fileID: 2406451016675431083}
-  m_InitManagerOnStart: 1
+  m_InitManagerOnStart: 0
 --- !u!114 &-3514089384157451789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: Android Settings
   m_EditorClassIdentifier: 
   m_LoaderManagerInstance: {fileID: 8701152394928477953}
-  m_InitManagerOnStart: 1
+  m_InitManagerOnStart: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

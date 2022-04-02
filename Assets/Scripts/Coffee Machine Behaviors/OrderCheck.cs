@@ -26,13 +26,21 @@ public class OrderCheck : MonoBehaviour
     {
      // We assume the order is correct so that we can compair --> easier
         bool isDrinkCorrect = false;
-        
-     // This Loop compairs the ingrediants between the order and order requirements
+
+
+        // This Loop compairs the ingrediants between the order and order requirements
+
+        /* this loop sucks because its returning for each value and not checking the group
+            I.E. If it will always return true or false based on the last value. */
+
+        int hasWrongIngredient = 0; //maybe will fix broken loop
+
         foreach (var ingredient in coffeeOrder.recipeTable.Keys)
         {
             if (coffeeOrder.recipeTable[ingredient] != coffeeOrder.ingredientTable[ingredient])
             {
                 isDrinkCorrect = false;
+                hasWrongIngredient++;
                 robotsOrderText.text = "I may not have taste buds, but my analysis says this is incorrect...";
             }
             else
@@ -43,7 +51,7 @@ public class OrderCheck : MonoBehaviour
         }
         Debug.Log(isDrinkCorrect);
 
-        if (isDrinkCorrect == true)
+        if (isDrinkCorrect == true && hasWrongIngredient <= 0)
         {
             robotsOrderText.text = "Thats Perfect! Thank you human.";
             correctCoffies += 1;

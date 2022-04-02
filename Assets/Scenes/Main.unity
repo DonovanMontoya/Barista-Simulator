@@ -5644,7 +5644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9350ee456b6f97746860f86628319544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultHeight: 1.8
+  defaultHeight: 0.25
   camera: {fileID: 1520330684}
 --- !u!1 &525328779
 GameObject:
@@ -14544,7 +14544,7 @@ MonoBehaviour:
   currentGrindTextMedium: {fileID: 1920813592}
   currentGrindTextCourse: {fileID: 937950510}
   espressoWand: {fileID: 1696257008}
-  espressoWandEspresso: {fileID: 0}
+  espressoWandEspresso: {fileID: 84858755}
   wandHasEspresso: 0
 --- !u!1 &1172187142
 GameObject:
