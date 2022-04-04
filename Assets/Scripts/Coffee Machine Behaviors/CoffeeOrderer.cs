@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CoffeeOrderer : MonoBehaviour
 {
@@ -18,6 +19,14 @@ public class CoffeeOrderer : MonoBehaviour
     public GameObject latterOrderImage;
     public GameObject espressoOrderImage;
     public WhatInCupDisplayHandler cupHandler;
+    [SerializeField] GameManager gameManager;
+    public int DrinkIndexNum;
+    [SerializeField] string gameMode;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     void Start()
     {
@@ -27,8 +36,15 @@ public class CoffeeOrderer : MonoBehaviour
 
 
         cupHandler.UpdateList();
-        SelectRandomOrder();
-
+        switch (gameMode)
+        {
+            case "learning":
+                SelectLiniarOrder();
+                break;
+            case "freeplay":
+                SelectRandomOrder();
+                break;
+        }
 
         foreach (KeyValuePair<Ingredients, int> kvp in ingredientTable)
         {
@@ -68,5 +84,18 @@ public class CoffeeOrderer : MonoBehaviour
             recipeTable[Ingredients.EspressoSingle] = 1;
             Debug.Log(drinkName);
         }
+    }
+    public void SelectLiniarOrder()
+    {
+        espressoOrderImage.SetActive(false);
+        latterOrderImage.SetActive(false);
+        
+        drinkName = "Espresso-Shot";
+        gameManager.currentTask = "getGrind";
+        espressoOrderImage.SetActive(true);
+        recipeTable[Ingredients.EspressoDouble] = 0;
+        recipeTable[Ingredients.SteamedMilk] = 0;
+        recipeTable[Ingredients.EspressoSingle] = 1;
+        Debug.Log(drinkName);
     }
 }

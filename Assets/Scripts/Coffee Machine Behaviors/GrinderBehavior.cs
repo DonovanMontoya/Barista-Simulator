@@ -21,6 +21,7 @@ public class GrinderBehavior : MonoBehaviour
     public GameObject currentGrindTextCourse;
     public GameObject espressoWand;
     public GameObject espressoWandEspresso;
+    [SerializeField] GameManager gameManager;
 
     public bool wandHasEspresso = false;
 
@@ -87,6 +88,7 @@ public class GrinderBehavior : MonoBehaviour
             {
                 wandHasEspresso = true;
                 espressoWandEspresso.SetActive(true);
+                gameManager.currentTask = "getCoffee";
                 Debug.Log("Does the Wand have espresso after push: " + wandHasEspresso);
             }
             else

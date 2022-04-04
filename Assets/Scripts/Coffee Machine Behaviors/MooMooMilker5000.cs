@@ -12,6 +12,8 @@ public class MooMooMilker5000 : MonoBehaviour
     public Color latteColor;
     public Color milkColor;
 
+    public bool hasMilk = false;
+
     public Animator anim;
 
     
@@ -19,6 +21,7 @@ public class MooMooMilker5000 : MonoBehaviour
     {
         anim.SetTrigger("StartSqeeze");
         coffeeOrder.ingredientTable[Ingredients.SteamedMilk] += 1;
+        hasMilk = true;
 
         cupHandler.UpdateList();
         var liquidRenderer = interaction.cupLiquid.GetComponent<Renderer>();

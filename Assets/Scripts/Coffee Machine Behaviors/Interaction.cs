@@ -5,8 +5,9 @@ using UnityEngine;
 public class Interaction : MonoBehaviour
 {
     public GrinderBehavior gB;
-    public CoffeeOrderer coffeeOrder;
+    [SerializeField] public CoffeeOrderer coffeeOrder;
     public WhatInCupDisplayHandler cupHandler;
+    [SerializeField] GameManager gameManager;
 
     public GameObject cupLiquid;
 
@@ -18,21 +19,24 @@ public class Interaction : MonoBehaviour
     public bool machineRan = false;
     public List<string> whatsInCupList = new List<string>();
 
-    void Start()
-    {
-       
-    }
     public void pressButtonBool()
     {
         machineRunning = true;
     }
 
-    void Update()
+    public void Update()
     {
-        //foreach (var item in whatsInCupList)
-        //{
-        //    Debug.Log(item.ToString());
-        //}
+        if (coffeeOrder.drinkName == "getMilk" && cupHasEspresso)
+        {
+            gameManager.whereToPlaceWandEsspresso.SetActive(false);
+            gameManager.whereToPlaceWandGrinder.SetActive(false);
+        }
+        if (coffeeOrder.drinkName == "Espresso-Shot" && cupHasEspresso)
+        {
+            gameManager.whereToPlaceMilkMug.SetActive(false);
+            gameManager.whereToPlaceWandEsspresso.SetActive(false);
+            gameManager.whereToPlaceWandGrinder.SetActive(false);      
+        }
     }
 
     public void RunEsspressoMachineSingle()
@@ -40,7 +44,6 @@ public class Interaction : MonoBehaviour
         if (gB.wandHasEspresso == true)
         {
             Debug.Log("Machine Run - Single");
-            //whatsInCupList.Add("Espresso-Single");
             coffeeOrder.ingredientTable[Ingredients.EspressoSingle] += 1;
             cupHandler.UpdateList();
             OffEsspressoMachine();
@@ -62,9 +65,7 @@ public class Interaction : MonoBehaviour
     {
         if (gB.wandHasEspresso == true)
         {
-
            Debug.Log("Machine Run - Double");
-           //whatsInCupList.Add("Espresso-Double");
             coffeeOrder.ingredientTable[Ingredients.EspressoDouble] += 1;
             cupHandler.UpdateList();
             OffEsspressoMachine();
@@ -76,12 +77,6 @@ public class Interaction : MonoBehaviour
             cupLiquid.SetActive(true);
             cupHasEspresso = true;
 
-
-            //foreach (var item in whatsInCupList)
-            //  {
-            //      Debug.Log(item.ToString());
-            //  }
-            //Debug.Log(coffeeOrder.ingredientTable.Values);
             foreach (KeyValuePair<Ingredients, int> kvp in coffeeOrder.ingredientTable)
             {
                 Debug.Log(kvp.Key);

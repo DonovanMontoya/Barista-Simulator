@@ -74,6 +74,11 @@ public class OrderCheck : MonoBehaviour
         EmptyCup();
         SceneManager.LoadScene("Main");
     }
+    public void ResetLearnScene()
+    {
+        EmptyCup();
+        SceneManager.LoadScene("Learning Mode");
+    }
 
     public void SaveTotalCorrectCoffees()
     {

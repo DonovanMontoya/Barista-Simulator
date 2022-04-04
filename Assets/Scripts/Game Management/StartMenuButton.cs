@@ -6,11 +6,22 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class StartMenuButton : MonoBehaviour
 {
+    public string buttonTag;
     public void StartGame()
     {
-        SceneManager.LoadScene("Minigame");
-        //SceneManager.UnloadScene("Main Menu");
-        GrinderBehaviorMiniGame.score = 0;
-        GrinderBehaviorMiniGame.loseScore = 0;
+        switch (buttonTag) 
+        {
+            case "MiniGame":
+                SceneManager.LoadScene("Minigame");
+                GrinderBehaviorMiniGame.score = 0;
+                GrinderBehaviorMiniGame.loseScore = 0;
+                break;
+            case "FreePlay":
+                SceneManager.LoadScene("Main");
+                break;
+            case "LearnMode":
+                SceneManager.LoadScene("Learning Mode");
+                break;
+        }
     }
 }
