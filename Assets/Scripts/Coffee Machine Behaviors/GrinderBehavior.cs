@@ -15,6 +15,9 @@ public class GrinderBehavior : MonoBehaviour
     public static int matchGrindValue;
     public static int SetGrindValue;
 
+    //trigger just for tutorial level
+    public string grindValueString;
+
 
     public GameObject currentGrindTextFine;
     public GameObject currentGrindTextMedium;
@@ -52,6 +55,7 @@ public class GrinderBehavior : MonoBehaviour
     {
         ChangeGrind(10);
         ChangeMatchValue(0);
+        grindValueString = "fine";
 
         currentGrindTextFine.SetActive(true);
         currentGrindTextMedium.SetActive(false);
@@ -63,6 +67,7 @@ public class GrinderBehavior : MonoBehaviour
     {
         ChangeGrind(20);
         ChangeMatchValue(1);
+        grindValueString = "medium";
 
         currentGrindTextFine.SetActive(false);
         currentGrindTextMedium.SetActive(true);
@@ -74,6 +79,7 @@ public class GrinderBehavior : MonoBehaviour
     {
         ChangeGrind(30);
         ChangeMatchValue(2);
+        grindValueString = "course";
 
         currentGrindTextFine.SetActive(false);
         currentGrindTextMedium.SetActive(false);

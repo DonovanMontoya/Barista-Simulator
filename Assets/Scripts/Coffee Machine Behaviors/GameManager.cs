@@ -7,12 +7,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameManager : MonoBehaviour
 {
-    public XRRayInteractor rHand;
-    public XRRayInteractor lHand;
+    //public XRRayInteractor rHand;
+    //public XRRayInteractor lHand;
     [SerializeField] CoffeeOrderer coffeeOrderer;
     [SerializeField] GrinderBehavior grinderBehavior;
     [SerializeField] Interaction interaction;
     [SerializeField] MooMooMilker5000 moomooMilker;
+    [SerializeField] GrinderSocket grinderSocket;
+    [SerializeField] MachineBehavior machineBehavior;
 
     public string currentTask;
 
@@ -20,14 +22,14 @@ public class GameManager : MonoBehaviour
     public bool holdingWand = false;
 
 
-
-    [SerializeField] public GameObject whereToPlaceWandGrinder = new GameObject();
-    [SerializeField] public GameObject whereToPlaceWandEsspresso = new GameObject();
-    [SerializeField] public GameObject whereToPlaceMilkMug = new GameObject();
-    [SerializeField] public GameObject whereToPlaceMugMaster = new GameObject();
-    [SerializeField] public GameObject pressThisButtonE1 = new GameObject();
-    [SerializeField] public GameObject pressThisButtonM1 = new GameObject();
-
+        [SerializeField] public GameObject whereToPlaceWandGrinder = new GameObject();
+        [SerializeField] public GameObject whereToPlaceWandEsspresso = new GameObject();
+        [SerializeField] public GameObject whereToPlaceMilkMug = new GameObject();
+        [SerializeField] public GameObject whereToPlaceMugMaster = new GameObject(); //refers to main animated mug
+        [SerializeField] public GameObject pressThisButtonE1 = new GameObject();
+        [SerializeField] public GameObject pressThisButtonGrindFine = new GameObject();
+        [SerializeField] public GameObject pressThisButtonGrindGrind = new GameObject();
+    
 
     public void Update()
     {
@@ -35,21 +37,41 @@ public class GameManager : MonoBehaviour
         switch (currentTask)
         {
             case "getGrind":
-                if (grinderBehavior.wandHasEspresso)
+                //grinder socket iswandAttached is specific to grinder
+                if (grinderSocket.isWandAttached) //is the wand in the espresso machine
+                {
+                    pressThisButtonGrindFine.SetActive(true); //next step select grind
+                }
+                if (grinderBehavior.grindValueString == "fine") //if correct grind selected turn off highlight and turn on grind button highlight
+                {
+                    pressThisButtonGrindFine.SetActive(false);
+                    pressThisButtonGrindGrind.SetActive(true);
+                }
+                if (grinderBehavior.wandHasEspresso) //once the wand has espresso, next task -- getCoffee
                 {
                     currentTask = "getCoffee";
                 }
                 break;
             case "getCoffee":
                 getCoffeeSetup();
-                if (interaction.cupHasEspresso | coffeeOrderer.drinkName == "latte")
+                //machine behavior iswandAttached is specific to the espresso machine
+                if (machineBehavior.isWandAttached && coffeeOrderer.drinkName == "Espresso-Shot") //check if wand is in the espresso machone & if so, turn on correct button highlight
                 {
-                    currentTask = "getCoffee";
+                    pressThisButtonE1.SetActive(true);
+                }
+                else
+                {
+                    //turn on highlight button for doubleshot
+                }
+                if (interaction.cupHasEspresso | coffeeOrderer.drinkName == "latte") //if the cup has espresso and is a latte move on to milk step
+                {
+                    currentTask = "getMilk";
                 }
                 break;
-            case "getMilk":
-                getMilkSetup();
-                if (moomooMilker.hasMilk)
+            case "getMilk": 
+                getMilkSetup(); //sets up milk step
+                if (moomooMilker.hasMilk)//once milk is attained turn off highlight
+                if (moomooMilker.hasMilk)//once milk is attained turn off highlight
                 {
                     whereToPlaceMilkMug.SetActive(false);
                 }
@@ -62,14 +84,15 @@ public class GameManager : MonoBehaviour
         whereToPlaceWandGrinder.SetActive(false);
         whereToPlaceWandEsspresso.SetActive(true);
         pressThisButtonE1.SetActive(true);
+        whereToPlaceMugMaster.SetActive(true);
         whereToPlaceMilkMug.SetActive(false);
     }
     public void getMilkSetup()
     {
         whereToPlaceWandGrinder.SetActive(false);
         whereToPlaceWandEsspresso.SetActive(false);
+        whereToPlaceMugMaster.SetActive(false);
         whereToPlaceMilkMug.SetActive(true);
         pressThisButtonE1.SetActive(true);
-        pressThisButtonM1.SetActive(true);
     }
 }
