@@ -10,6 +10,7 @@ public class OrderCheck : MonoBehaviour
     public WhatInCupDisplayHandler cupHandler;
     public TextMeshProUGUI robotsOrderText;
     public TextMeshProUGUI correctCoffeesText;
+    [SerializeField] public Animator roboAnim;
 
     CoffeeOrderer coffeeController;
 
@@ -42,6 +43,8 @@ public class OrderCheck : MonoBehaviour
                 isDrinkCorrect = false;
                 hasWrongIngredient++;
                 robotsOrderText.text = "I may not have taste buds, but my analysis says this is incorrect...";
+                roboAnim.ResetTrigger("correctOrder");
+                roboAnim.SetTrigger("wrongOrder");
             }
             else
             {
@@ -54,6 +57,8 @@ public class OrderCheck : MonoBehaviour
         if (isDrinkCorrect == true && hasWrongIngredient <= 0)
         {
             robotsOrderText.text = "Thats Perfect! Thank you human.";
+            roboAnim.ResetTrigger("wrongOrder");
+            roboAnim.SetTrigger("correctOrder");
             correctCoffies += 1;
         }
         SaveTotalCorrectCoffees();
