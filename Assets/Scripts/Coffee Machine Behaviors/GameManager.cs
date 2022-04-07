@@ -67,6 +67,10 @@ public class GameManager : MonoBehaviour
                 {
                     currentTask = "getMilk";
                 }
+                if (interaction.cupHasEspresso && coffeeOrderer.drinkName == "Espresso-Shot")
+                {
+                    pressThisButtonE1.SetActive(false); //Finishes espresso tutorial highlights
+                }
                 break;
             case "getMilk": 
                 getMilkSetup(); //sets up milk step
@@ -84,6 +88,7 @@ public class GameManager : MonoBehaviour
         whereToPlaceWandGrinder.SetActive(false);
         whereToPlaceWandEsspresso.SetActive(true);
         pressThisButtonE1.SetActive(true);
+        pressThisButtonGrindGrind.SetActive(false);
         whereToPlaceMugMaster.SetActive(true);
         whereToPlaceMilkMug.SetActive(false);
     }
