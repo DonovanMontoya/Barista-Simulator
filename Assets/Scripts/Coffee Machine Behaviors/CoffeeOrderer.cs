@@ -21,7 +21,7 @@ public class CoffeeOrderer : MonoBehaviour
     public WhatInCupDisplayHandler cupHandler;
     [SerializeField] GameManager gameManager;
     public int DrinkIndexNum;
-    [SerializeField] string gameMode;
+    [SerializeField] public string gameMode;
 
     void Awake()
     {
@@ -84,6 +84,31 @@ public class CoffeeOrderer : MonoBehaviour
             recipeTable[Ingredients.EspressoSingle] = 1;
             Debug.Log(drinkName);
         }
+        /* Here to implement later
+        if (DrinkIndexNum == 2)
+        {
+            drinkName = "Americano";
+            //Looking to see if the order image will be enough here.
+            //robotsOrderText.text = "Robot Order Prefference: An Espresso";
+            espressoOrderImage.SetActive(true);
+            recipeTable[Ingredients.EspressoDouble] = 0;
+            recipeTable[Ingredients.SteamedMilk] = 0;
+            recipeTable[Ingredients.EspressoSingle] = 1;
+            Debug.Log(drinkName);
+        }
+        
+        if (DrinkIndexNum == 3) //its just steamed milk... idk, thought I would clearify... k.. Thanks for reading this.
+        {
+            drinkName = "Steamer";
+            //Looking to see if the order image will be enough here.
+            //robotsOrderText.text = "Robot Order Prefference: An Espresso";
+            espressoOrderImage.SetActive(true);
+            recipeTable[Ingredients.EspressoDouble] = 0;
+            recipeTable[Ingredients.SteamedMilk] = 0;
+            recipeTable[Ingredients.EspressoSingle] = 1;
+            Debug.Log(drinkName);
+        }
+        */
     }
     public void SelectLiniarOrder()
     {
@@ -96,6 +121,20 @@ public class CoffeeOrderer : MonoBehaviour
         recipeTable[Ingredients.EspressoDouble] = 0;
         recipeTable[Ingredients.SteamedMilk] = 0;
         recipeTable[Ingredients.EspressoSingle] = 1;
+        Debug.Log(drinkName);
+    }
+
+    public void SelectNextOrder()
+    {
+        espressoOrderImage.SetActive(false);
+        latterOrderImage.SetActive(false);
+
+        drinkName = "Latte";
+        gameManager.currentTask = "getGrind";
+        latterOrderImage.SetActive(true);
+        recipeTable[Ingredients.EspressoDouble] = 1;
+        recipeTable[Ingredients.SteamedMilk] = 1;
+        recipeTable[Ingredients.EspressoSingle] = 0;
         Debug.Log(drinkName);
     }
 }

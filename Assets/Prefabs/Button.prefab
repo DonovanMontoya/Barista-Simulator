@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 4384867939923997886}
   - component: {fileID: 4384867939923997885}
   - component: {fileID: 4384867939923997856}
+  - component: {fileID: 6125783214767822330}
   - component: {fileID: 4384867939923997884}
   - component: {fileID: 4384867939923997883}
   - component: {fileID: 4384867939923997857}
@@ -206,6 +207,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6125783214767822330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4384867939923997881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe2d5c8fc844874c8a14254b4b2a7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4384867939923997884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +395,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc10de27fbc617439f1e61f2e2ddc4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gB: {fileID: 0}
+  coffeeOrder: {fileID: 0}
+  cupHandler: {fileID: 0}
+  gameManager: {fileID: 0}
+  cupLiquid: {fileID: 0}
+  Espresso: {r: 0, g: 0, b: 0, a: 0}
+  cupHasEspresso: 0
   machineRunning: 0
+  machineRan: 0
+  whatsInCupList: []
 --- !u!1 &4384867940489638234
 GameObject:
   m_ObjectHideFlags: 0

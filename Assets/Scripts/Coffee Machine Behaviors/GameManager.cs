@@ -27,8 +27,10 @@ public class GameManager : MonoBehaviour
         [SerializeField] public GameObject whereToPlaceMilkMug = new GameObject();
         [SerializeField] public GameObject whereToPlaceMugMaster = new GameObject(); //refers to main animated mug
         [SerializeField] public GameObject pressThisButtonE1 = new GameObject();
+        [SerializeField] public GameObject pressThisButtonE2 = new GameObject();
         [SerializeField] public GameObject pressThisButtonGrindFine = new GameObject();
         [SerializeField] public GameObject pressThisButtonGrindGrind = new GameObject();
+        [SerializeField] public GameObject pressThisButtonMilk = new GameObject();
     
 
     public void Update()
@@ -61,15 +63,15 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    //turn on highlight button for doubleshot
-                }
-                if (interaction.cupHasEspresso | coffeeOrderer.drinkName == "latte") //if the cup has espresso and is a latte move on to milk step
-                {
-                    currentTask = "getMilk";
+                    pressThisButtonE2.SetActive(true);
                 }
                 if (interaction.cupHasEspresso && coffeeOrderer.drinkName == "Espresso-Shot")
                 {
                     pressThisButtonE1.SetActive(false); //Finishes espresso tutorial highlights
+                }
+                if (interaction.cupHasEspresso | coffeeOrderer.drinkName == "latte") //if the cup has espresso and is a latte move on to milk step
+                {
+                    currentTask = "getMilk";
                 }
                 break;
             case "getMilk": 
@@ -97,7 +99,8 @@ public class GameManager : MonoBehaviour
         whereToPlaceWandGrinder.SetActive(false);
         whereToPlaceWandEsspresso.SetActive(false);
         whereToPlaceMugMaster.SetActive(false);
+        pressThisButtonE1.SetActive(false);
         whereToPlaceMilkMug.SetActive(true);
-        pressThisButtonE1.SetActive(true);
+        pressThisButtonMilk.SetActive(true);
     }
 }

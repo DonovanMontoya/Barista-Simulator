@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class OrderCheck : MonoBehaviour
 {
-    public CoffeeOrderer coffeeOrder;
+    [SerializeField] public CoffeeOrderer coffeeOrder;
     public WhatInCupDisplayHandler cupHandler;
     public TextMeshProUGUI robotsOrderText;
     public TextMeshProUGUI correctCoffeesText;
@@ -34,7 +34,7 @@ public class OrderCheck : MonoBehaviour
         /* this loop sucks because its returning for each value and not checking the group
             I.E. If it will always return true or false based on the last value. */
 
-        int hasWrongIngredient = 0; //maybe will fix broken loop
+        int hasWrongIngredient = 0; //maybe will fix broken loop    UPDATE - This totally fixed that shit.
 
         foreach (var ingredient in coffeeOrder.recipeTable.Keys)
         {
@@ -76,15 +76,22 @@ public class OrderCheck : MonoBehaviour
 
     public void ResetScene()
     {
-        EmptyCup();
-        SceneManager.LoadScene("Main");
+        if (coffeeOrder.gameMode == "freeplay")
+        {
+            EmptyCup();
+            SceneManager.LoadScene("Main");
+        }
+        if (coffeeOrder.gameMode == "learning")
+        {
+            EmptyCup();
+            coffeeOrder.SelectNextOrder();
+            roboAnim.SetTrigger("thinking");
+        }
+        if (coffeeOrder.gameMode == "learning" && coffeeOrder.drinkName == "Latte")
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
     }
-    public void ResetLearnScene()
-    {
-        EmptyCup();
-        SceneManager.LoadScene("Learning Mode");
-    }
-
     public void SaveTotalCorrectCoffees()
     {
         SaveSystem.SaveTotalCoffees(this);

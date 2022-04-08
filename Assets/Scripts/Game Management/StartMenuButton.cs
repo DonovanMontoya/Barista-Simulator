@@ -11,8 +11,8 @@ public class StartMenuButton : MonoBehaviour
     {
         switch (buttonTag) 
         {
-            case "MiniGame":
-                SceneManager.LoadScene("Minigame");
+            case "Minigame":
+                SceneManager.LoadScene("MiniGame Menu");
                 GrinderBehaviorMiniGame.score = 0;
                 GrinderBehaviorMiniGame.loseScore = 0;
                 break;

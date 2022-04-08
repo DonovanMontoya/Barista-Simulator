@@ -1235,13 +1235,13 @@ PrefabInstance:
     - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: StartGame
+      value: ReturnToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 985466460}
+      objectReference: {fileID: 985466461}
     - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -1346,6 +1346,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f83f23189d6b7844b178992c3e61cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &985466461 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6125783214767822330, guid: ba27d1b21b0691a4c81a12cf247fe19c,
+    type: 3}
+  m_PrefabInstance: {fileID: 985466458}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985466459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe2d5c8fc844874c8a14254b4b2a7b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1135365246
@@ -1662,6 +1674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd060484dabec204b8047ff72516f9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonTag: 
 --- !u!1001 &1424626969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1976,7 +1989,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play Game
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

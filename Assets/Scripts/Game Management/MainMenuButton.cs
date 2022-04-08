@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class WinScreenButton: MonoBehaviour
+public class MainMenuButton: MonoBehaviour
 {
-    public void StartGame()
+    public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Main Menu");
     }
 }

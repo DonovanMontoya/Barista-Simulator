@@ -1954,7 +1954,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -519.80273, y: -206.62106}
+  m_AnchoredPosition: {x: -519.6459, y: -206.62106}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1692213674
@@ -1976,7 +1976,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: To The Main Game
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2042,13 +2042,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 32.590088, z: 156.17947, w: 10.062768}
+  m_margin: {x: 0, y: 32.590088, z: 174.00793, w: 10.062768}
   m_textInfo:
     textComponent: {fileID: 1692213674}
-    characterCount: 16
+    characterCount: 9
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 4
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -2593,13 +2593,13 @@ PrefabInstance:
     - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: StartGame
+      value: ReturnToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1386897441}
+      objectReference: {fileID: 2028672713}
     - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -2688,6 +2688,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4384867939923997857, guid: ba27d1b21b0691a4c81a12cf247fe19c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba27d1b21b0691a4c81a12cf247fe19c, type: 3}
+--- !u!114 &2028672713 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6125783214767822330, guid: ba27d1b21b0691a4c81a12cf247fe19c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2028672712}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386897440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe2d5c8fc844874c8a14254b4b2a7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2066703695
 PrefabInstance:
   m_ObjectHideFlags: 0
