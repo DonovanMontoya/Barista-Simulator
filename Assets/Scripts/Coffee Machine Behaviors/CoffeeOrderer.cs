@@ -44,6 +44,9 @@ public class CoffeeOrderer : MonoBehaviour
             case "freeplay":
                 SelectRandomOrder();
                 break;
+            case "learning - 2":
+                SelectLiniarOrder();
+                break;
         }
 
         foreach (KeyValuePair<Ingredients, int> kvp in ingredientTable)
@@ -112,20 +115,37 @@ public class CoffeeOrderer : MonoBehaviour
     }
     public void SelectLiniarOrder()
     {
-        espressoOrderImage.SetActive(false);
-        latterOrderImage.SetActive(false);
-        
-        drinkName = "Espresso-Shot";
-        gameManager.currentTask = "getGrind";
-        espressoOrderImage.SetActive(true);
-        recipeTable[Ingredients.EspressoDouble] = 0;
-        recipeTable[Ingredients.SteamedMilk] = 0;
-        recipeTable[Ingredients.EspressoSingle] = 1;
-        Debug.Log(drinkName);
+        switch (gameMode)
+        {
+            case "learning":
+                espressoOrderImage.SetActive(false);
+                latterOrderImage.SetActive(false);
+
+                drinkName = "Espresso-Shot";
+                gameManager.currentTask = "getGrind";
+                espressoOrderImage.SetActive(true);
+                recipeTable[Ingredients.EspressoDouble] = 0;
+                recipeTable[Ingredients.SteamedMilk] = 0;
+                recipeTable[Ingredients.EspressoSingle] = 1;
+                Debug.Log(drinkName);
+                break;
+            case "learning - 2":
+                espressoOrderImage.SetActive(false);
+                latterOrderImage.SetActive(false);
+                drinkName = "Latte";
+                gameManager.currentTask = "getGrind";
+                latterOrderImage.SetActive(true);
+                recipeTable[Ingredients.EspressoDouble] = 1;
+                recipeTable[Ingredients.SteamedMilk] = 1;
+                recipeTable[Ingredients.EspressoSingle] = 0;
+                Debug.Log(drinkName);
+                break;
+        }
     }
 
     public void SelectNextOrder()
     {
+
         espressoOrderImage.SetActive(false);
         latterOrderImage.SetActive(false);
 

@@ -46,6 +46,7 @@ public class Interaction : MonoBehaviour
             Debug.Log("Machine Run - Single");
             coffeeOrder.ingredientTable[Ingredients.EspressoSingle] += 1;
             cupHandler.UpdateList();
+            cupHasEspresso = true;
             OffEsspressoMachine();
             machineRan = true;
             //shows liquid visual object
@@ -53,7 +54,6 @@ public class Interaction : MonoBehaviour
             var liquidRenderer = cupLiquid.GetComponent<Renderer>();
             liquidRenderer.material.SetColor("_Color", Espresso);
             cupLiquid.SetActive(true);
-            cupHasEspresso = true;
         }
         else
         {
@@ -68,6 +68,7 @@ public class Interaction : MonoBehaviour
            Debug.Log("Machine Run - Double");
             coffeeOrder.ingredientTable[Ingredients.EspressoDouble] += 1;
             cupHandler.UpdateList();
+            cupHasEspresso = true;
             OffEsspressoMachine();
             machineRan= true;
             //shows liquid visual object
@@ -75,7 +76,6 @@ public class Interaction : MonoBehaviour
             var liquidRenderer = cupLiquid.GetComponent<Renderer>();
             liquidRenderer.material.SetColor("_Color", Espresso);
             cupLiquid.SetActive(true);
-            cupHasEspresso = true;
 
             foreach (KeyValuePair<Ingredients, int> kvp in coffeeOrder.ingredientTable)
             {

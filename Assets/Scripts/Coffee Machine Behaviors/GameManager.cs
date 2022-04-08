@@ -59,15 +59,19 @@ public class GameManager : MonoBehaviour
                 //machine behavior iswandAttached is specific to the espresso machine
                 if (machineBehavior.isWandAttached && coffeeOrderer.drinkName == "Espresso-Shot") //check if wand is in the espresso machone & if so, turn on correct button highlight
                 {
-                    pressThisButtonE1.SetActive(true);
+                    pressThisButtonE1.SetActive(true); 
+                    pressThisButtonE2.SetActive(false);
                 }
                 else
                 {
+                    pressThisButtonE1.SetActive(false);
                     pressThisButtonE2.SetActive(true);
                 }
                 if (interaction.cupHasEspresso && coffeeOrderer.drinkName == "Espresso-Shot")
                 {
-                    pressThisButtonE1.SetActive(false); //Finishes espresso tutorial highlights
+                    //Finishes espresso tutorial highlights
+                    pressThisButtonE1.SetActive(false); 
+                    whereToPlaceMugMaster.SetActive(false);
                 }
                 if (interaction.cupHasEspresso && coffeeOrderer.drinkName == "Latte") //if the cup has espresso and is a latte move on to milk step
                 {
@@ -79,6 +83,7 @@ public class GameManager : MonoBehaviour
                 if (moomooMilker.hasMilk)//once milk is attained turn off highlight
                 {
                     whereToPlaceMilkMug.SetActive(false);
+                    pressThisButtonMilk.SetActive(false);
                 }
                 break;
         }
@@ -99,6 +104,7 @@ public class GameManager : MonoBehaviour
         whereToPlaceWandEsspresso.SetActive(false);
         whereToPlaceMugMaster.SetActive(false);
         pressThisButtonE1.SetActive(false);
+        pressThisButtonE2.SetActive(false);
         whereToPlaceMilkMug.SetActive(true);
         pressThisButtonMilk.SetActive(true);
     }

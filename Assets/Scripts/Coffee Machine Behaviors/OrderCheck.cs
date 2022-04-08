@@ -85,13 +85,7 @@ public class OrderCheck : MonoBehaviour
 
     public void SetNextDrink()
     {
-        EmptyCup();
-        coffeeOrder.drinkName = "Latte";
-        coffeeOrder.latterOrderImage.SetActive(true);
-        coffeeOrder.espressoOrderImage.SetActive(false);
-        coffeeOrder.recipeTable[Ingredients.EspressoDouble] = 1;
-        coffeeOrder.recipeTable[Ingredients.SteamedMilk] = 1;
-        coffeeOrder.recipeTable[Ingredients.EspressoSingle] = 0;
+        SceneManager.LoadScene("Learning Mode Part2");
     }
 
     public void SaveTotalCorrectCoffees()
