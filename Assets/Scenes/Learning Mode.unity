@@ -2761,6 +2761,7 @@ MonoBehaviour:
   robotsOrderText: {fileID: 1060635817}
   correctCoffeesText: {fileID: 0}
   roboAnim: {fileID: 0}
+  mugLiquid: {fileID: 6440917356198849147}
   isPairCorrect: 0
   correctCoffies: 0
 --- !u!1 &228454041
@@ -15250,6 +15251,7 @@ MonoBehaviour:
   robotsOrderText: {fileID: 1060635817}
   correctCoffeesText: {fileID: 0}
   roboAnim: {fileID: 2065382619}
+  mugLiquid: {fileID: 0}
   isPairCorrect: 0
   correctCoffies: 0
 --- !u!1 &1178639785 stripped
@@ -16387,7 +16389,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259762478}
   m_LocalRotation: {x: -0, y: -0.2796094, z: -0, w: 0.9601139}
-  m_LocalPosition: {x: 0, y: 0, z: 18.8}
+  m_LocalPosition: {x: 0, y: 0, z: -20.1}
   m_LocalScale: {x: 0.59831494, y: 0.528806, z: 2.610929}
   m_Children: []
   m_Father: {fileID: 57871716}
@@ -16395,7 +16397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -32.474003, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 112.9, y: -149}
+  m_AnchoredPosition: {x: 58.3, y: -149}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1259762480
@@ -19359,7 +19361,7 @@ PrefabInstance:
     - target: {fileID: 4384867940489638235, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.24813867
+      value: -0.051
       objectReference: {fileID: 0}
     - target: {fileID: 4384867940489638235, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
@@ -19464,6 +19466,7 @@ MonoBehaviour:
   robotsOrderText: {fileID: 0}
   correctCoffeesText: {fileID: 0}
   roboAnim: {fileID: 0}
+  mugLiquid: {fileID: 0}
   isPairCorrect: 0
   correctCoffies: 0
 --- !u!1 &1461793845 stripped
@@ -25891,14 +25894,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996801547}
-  m_LocalRotation: {x: -0.19701289, y: -0.67135453, z: -0.68813103, w: 0.19221002}
-  m_LocalPosition: {x: -0.175, y: 1.074, z: 3.1104577}
+  m_LocalRotation: {x: 0.2733546, y: -0.6453975, z: -0.6615254, w: -0.26669}
+  m_LocalPosition: {x: -2.044, y: 1.074, z: 3.1104577}
   m_LocalScale: {x: 0.34916094, y: 0.48343, z: 0.01929988}
   m_Children:
   - {fileID: 1321350942}
   m_Father: {fileID: 0}
   m_RootOrder: 26
-  m_LocalEulerAnglesHint: {x: -91.413994, y: -148.048, z: 0.0009918213}
+  m_LocalEulerAnglesHint: {x: -91.413994, y: -224.903, z: 0.0009918213}
 --- !u!1 &1997572702
 GameObject:
   m_ObjectHideFlags: 0
@@ -26784,6 +26787,7 @@ MonoBehaviour:
   robotsOrderText: {fileID: 1060635817}
   correctCoffeesText: {fileID: 0}
   roboAnim: {fileID: 0}
+  mugLiquid: {fileID: 0}
   isPairCorrect: 0
   correctCoffies: 0
 --- !u!4 &2054038988 stripped

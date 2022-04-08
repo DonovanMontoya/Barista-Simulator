@@ -11,6 +11,7 @@ public class OrderCheck : MonoBehaviour
     public TextMeshProUGUI robotsOrderText;
     public TextMeshProUGUI correctCoffeesText;
     [SerializeField] public Animator roboAnim;
+    [SerializeField] GameObject mugLiquid;
 
     CoffeeOrderer coffeeController;
 
@@ -72,26 +73,27 @@ public class OrderCheck : MonoBehaviour
         coffeeOrder.ingredientTable[Ingredients.SteamedMilk] = 0;
 
         cupHandler.UpdateList();
+
+        mugLiquid.SetActive(false);
     }
 
     public void ResetScene()
     {
-        if (coffeeOrder.gameMode == "freeplay")
-        {
-            EmptyCup();
-            SceneManager.LoadScene("Main");
-        }
-        if (coffeeOrder.gameMode == "learning")
-        {
-            EmptyCup();
-            coffeeOrder.SelectNextOrder();
-            roboAnim.SetTrigger("thinking");
-        }
-        if (coffeeOrder.gameMode == "learning" && coffeeOrder.drinkName == "Latte")
-        {
-            SceneManager.LoadScene("Main Menu");
-        }
+       // EmptyCup();
+        SceneManager.LoadScene("Main");
     }
+
+    public void SetNextDrink()
+    {
+        EmptyCup();
+        coffeeOrder.drinkName = "Latte";
+        coffeeOrder.latterOrderImage.SetActive(true);
+        coffeeOrder.espressoOrderImage.SetActive(false);
+        coffeeOrder.recipeTable[Ingredients.EspressoDouble] = 1;
+        coffeeOrder.recipeTable[Ingredients.SteamedMilk] = 1;
+        coffeeOrder.recipeTable[Ingredients.EspressoSingle] = 0;
+    }
+
     public void SaveTotalCorrectCoffees()
     {
         SaveSystem.SaveTotalCoffees(this);

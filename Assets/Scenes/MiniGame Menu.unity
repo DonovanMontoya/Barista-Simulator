@@ -2079,7 +2079,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616179878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.91, y: 0, z: -3.1}
+  m_LocalPosition: {x: -0.91, y: 0, z: 2.529}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1691392022}
@@ -5121,7 +5121,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8300000, guid: 98e759dfda69aa7468d95f5a2c88e366, type: 3}
+      objectReference: {fileID: 8300000, guid: a80623a9b40caa04dab0b89d62575994, type: 3}
     - target: {fileID: 4384867940489638234, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: m_Name
@@ -6450,7 +6450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd060484dabec204b8047ff72516f9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonTag: 
+  buttonTag: StartMiniGame
 --- !u!1001 &1424626969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9180,7 +9180,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8300000, guid: 98e759dfda69aa7468d95f5a2c88e366, type: 3}
+      objectReference: {fileID: 8300000, guid: a80623a9b40caa04dab0b89d62575994, type: 3}
     - target: {fileID: 4384867940489638234, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: m_Name
@@ -9672,13 +9672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_allowOffhandGrab: 1
-  m_snapPosition: 1
-  m_snapOrientation: 1
-  m_snapOffset: {fileID: 20334487063021506, guid: da7472ac5baa8154b9e99be0a5b5e6c2,
-    type: 3}
-  m_grabPoints:
-  - {fileID: 2066703704}
 --- !u!64 &2066703704
 MeshCollider:
   m_ObjectHideFlags: 0

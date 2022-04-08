@@ -22,6 +22,9 @@ public class StartMenuButton : MonoBehaviour
             case "LearnMode":
                 SceneManager.LoadScene("Learning Mode");
                 break;
+            case "StartMiniGame":
+                SceneManager.LoadScene("Minigame");
+                break;
         }
     }
 }

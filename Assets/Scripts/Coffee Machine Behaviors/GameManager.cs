@@ -69,14 +69,13 @@ public class GameManager : MonoBehaviour
                 {
                     pressThisButtonE1.SetActive(false); //Finishes espresso tutorial highlights
                 }
-                if (interaction.cupHasEspresso | coffeeOrderer.drinkName == "latte") //if the cup has espresso and is a latte move on to milk step
+                if (interaction.cupHasEspresso && coffeeOrderer.drinkName == "Latte") //if the cup has espresso and is a latte move on to milk step
                 {
                     currentTask = "getMilk";
                 }
                 break;
             case "getMilk": 
                 getMilkSetup(); //sets up milk step
-                if (moomooMilker.hasMilk)//once milk is attained turn off highlight
                 if (moomooMilker.hasMilk)//once milk is attained turn off highlight
                 {
                     whereToPlaceMilkMug.SetActive(false);
