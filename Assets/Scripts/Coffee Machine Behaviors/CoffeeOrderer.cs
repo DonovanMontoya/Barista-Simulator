@@ -18,9 +18,12 @@ public class CoffeeOrderer : MonoBehaviour
     public TextMeshProUGUI robotsOrderText;
     public GameObject latterOrderImage;
     public GameObject espressoOrderImage;
+    public GameObject steamerOrderImage;
+
     public WhatInCupDisplayHandler cupHandler;
-    [SerializeField] GameManager gameManager;
     public int DrinkIndexNum;
+
+    [SerializeField] GameManager gameManager;
     [SerializeField] public string gameMode;
 
     void Awake()
@@ -62,7 +65,7 @@ public class CoffeeOrderer : MonoBehaviour
         latterOrderImage.SetActive(false);
 
         Random rand = new Random();
-        int DrinkIndexNum = Random.Range(0, 2);
+        int DrinkIndexNum = Random.Range(0, 3);
 
         if (DrinkIndexNum == 0)
         {
@@ -87,31 +90,16 @@ public class CoffeeOrderer : MonoBehaviour
             recipeTable[Ingredients.EspressoSingle] = 1;
             Debug.Log(drinkName);
         }
-        /* Here to implement later
-        if (DrinkIndexNum == 2)
-        {
-            drinkName = "Americano";
-            //Looking to see if the order image will be enough here.
-            //robotsOrderText.text = "Robot Order Prefference: An Espresso";
-            espressoOrderImage.SetActive(true);
-            recipeTable[Ingredients.EspressoDouble] = 0;
-            recipeTable[Ingredients.SteamedMilk] = 0;
-            recipeTable[Ingredients.EspressoSingle] = 1;
-            Debug.Log(drinkName);
-        }
-        
-        if (DrinkIndexNum == 3) //its just steamed milk... idk, thought I would clearify... k.. Thanks for reading this.
+
+        if (DrinkIndexNum == 2) //its just steamed milk... idk, thought I would clearify... k.. Thanks for reading this.
         {
             drinkName = "Steamer";
-            //Looking to see if the order image will be enough here.
-            //robotsOrderText.text = "Robot Order Prefference: An Espresso";
-            espressoOrderImage.SetActive(true);
             recipeTable[Ingredients.EspressoDouble] = 0;
-            recipeTable[Ingredients.SteamedMilk] = 0;
-            recipeTable[Ingredients.EspressoSingle] = 1;
+            recipeTable[Ingredients.SteamedMilk] = 1;
+            recipeTable[Ingredients.EspressoSingle] = 0;
+            steamerOrderImage.SetActive(true);
             Debug.Log(drinkName);
         }
-        */
     }
     public void SelectLiniarOrder()
     {

@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         [SerializeField] public GameObject pressThisButtonGrindFine = new GameObject();
         [SerializeField] public GameObject pressThisButtonGrindGrind = new GameObject();
         [SerializeField] public GameObject pressThisButtonMilk = new GameObject();
+        [SerializeField] public GameObject pressCheckOrderButton = new GameObject();
     
 
     public void Update()
@@ -72,6 +73,8 @@ public class GameManager : MonoBehaviour
                     //Finishes espresso tutorial highlights
                     pressThisButtonE1.SetActive(false); 
                     whereToPlaceMugMaster.SetActive(false);
+
+                    currentTask = "checkOrder";
                 }
                 if (interaction.cupHasEspresso && coffeeOrderer.drinkName == "Latte") //if the cup has espresso and is a latte move on to milk step
                 {
@@ -84,7 +87,14 @@ public class GameManager : MonoBehaviour
                 {
                     whereToPlaceMilkMug.SetActive(false);
                     pressThisButtonMilk.SetActive(false);
+
+                    currentTask = "checkOrder";
                 }
+                break;
+            case "checkOrder":
+
+                pressCheckOrderButton.SetActive(true);
+
                 break;
         }
     }

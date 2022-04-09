@@ -1674,7 +1674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd060484dabec204b8047ff72516f9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonTag: 
+  buttonTag: StartMiniGame
 --- !u!1001 &1424626969
 PrefabInstance:
   m_ObjectHideFlags: 0

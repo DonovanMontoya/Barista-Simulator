@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 76f260db7ade01440b55d208fc35cc12
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 522bceea4eaa77048accfb080c2e4bc9
   - enabled: 0
@@ -20,16 +20,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Learning Mode Part2.unity
     guid: 2bfb794b5863adc498167c1c57e78ec3
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Minigame.unity
     guid: 51cc857d4c368c14fb5ea39e5fbec382
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MiniGame Menu.unity
     guid: 7bb317d1138a02747afe4863206a5cb4
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 8ddc5acbe5493ac438d831189b9be7a8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/LoseScreen.unity
     guid: 46277211bcad704469dc45eab9c6738f
   m_configObjects:

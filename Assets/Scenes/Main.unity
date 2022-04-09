@@ -7672,6 +7672,7 @@ MonoBehaviour:
   pressThisButtonGrindFine: {fileID: 44733151}
   pressThisButtonGrindGrind: {fileID: 1504661825}
   pressThisButtonMilk: {fileID: 1294890563}
+  pressCheckOrderButton: {fileID: 0}
 --- !u!1001 &640490826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11369,7 +11370,7 @@ PrefabInstance:
     - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
@@ -11421,6 +11422,41 @@ PrefabInstance:
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
+        type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
+        type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
+        type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
+        type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 858417898}
+    - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
+        type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: PlayOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
+        type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
+        type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 6660ef15075b6f84fae5e3271337add7, type: 3}
     - target: {fileID: 4384867940489638234, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: m_Name
@@ -11525,6 +11561,12 @@ MonoBehaviour:
   milkColor: {r: 1, g: 1, b: 1, a: 0}
   hasMilk: 0
   anim: {fileID: 1114650459}
+--- !u!82 &858417898 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4384867939923997883, guid: ba27d1b21b0691a4c81a12cf247fe19c,
+    type: 3}
+  m_PrefabInstance: {fileID: 858417894}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &858417905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13172,7 +13214,7 @@ PrefabInstance:
     - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4384867939923997884, guid: ba27d1b21b0691a4c81a12cf247fe19c,
         type: 3}
@@ -13937,9 +13979,10 @@ MonoBehaviour:
   robotsOrderText: {fileID: 1060635817}
   latterOrderImage: {fileID: 1380778809}
   espressoOrderImage: {fileID: 65852685}
+  steamerOrderImage: {fileID: 2111514688}
   cupHandler: {fileID: 166511598}
-  gameManager: {fileID: 638283228}
   DrinkIndexNum: 0
+  gameManager: {fileID: 638283228}
   gameMode: freeplay
 --- !u!4 &1023635902
 Transform:
@@ -15251,7 +15294,7 @@ MonoBehaviour:
   robotsOrderText: {fileID: 1060635817}
   correctCoffeesText: {fileID: 0}
   roboAnim: {fileID: 2065382619}
-  mugLiquid: {fileID: 0}
+  mugLiquid: {fileID: 6440917356198849147}
   isPairCorrect: 0
   correctCoffies: 0
 --- !u!1 &1178639785 stripped
@@ -25858,7 +25901,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b898bdf779db33341b7ee5f4ecc90c98, type: 2}
+  - {fileID: 2100000, guid: 6bf79d9c756977f41838a7bb4ae24e1a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28032,6 +28075,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2108382853}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2111514688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2111514689}
+  - component: {fileID: 2111514691}
+  - component: {fileID: 2111514690}
+  m_Layer: 5
+  m_Name: OrderImageSteamer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2111514689
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111514688}
+  m_LocalRotation: {x: -0, y: 0.05710306, z: -0, w: 0.99836826}
+  m_LocalPosition: {x: 0, y: 0, z: 14.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2113163103}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 6.5470004, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 20.8, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2111514690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111514688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 9f53971435b2d4a408808874867ff00d, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2111514691
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111514688}
+  m_CullTransparentMesh: 0
 --- !u!1 &2113163102
 GameObject:
   m_ObjectHideFlags: 0
@@ -28062,6 +28179,7 @@ RectTransform:
   - {fileID: 65852686}
   - {fileID: 1380778810}
   - {fileID: 1401278779}
+  - {fileID: 2111514689}
   m_Father: {fileID: 57871716}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

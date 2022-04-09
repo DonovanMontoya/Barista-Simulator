@@ -23,6 +23,8 @@ public class StartMenuButton : MonoBehaviour
                 SceneManager.LoadScene("Learning Mode");
                 break;
             case "StartMiniGame":
+                GrinderBehaviorMiniGame.score = 0;
+                GrinderBehaviorMiniGame.loseScore = 0;
                 SceneManager.LoadScene("Minigame");
                 break;
         }
