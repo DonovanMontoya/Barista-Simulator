@@ -12,7 +12,7 @@ public class MugSocketNotifyer : MonoBehaviour
         if (other.tag == "Mug")
         {
             isMugAttached = true;
-            
+
             Debug.Log("Mug Attached and Boolian is " + isMugAttached);
         }
     }
@@ -22,7 +22,7 @@ public class MugSocketNotifyer : MonoBehaviour
         if (other.tag == "Mug")
         {
             isMugAttached = false;
-            
+
             Debug.Log("Mug Removed and Boolian is " + isMugAttached);
         }
     }

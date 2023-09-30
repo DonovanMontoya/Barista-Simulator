@@ -11,17 +11,12 @@ public class GrinderSocket : MonoBehaviour
     public GameObject buttonMedium;
     public GameObject buttonCourse;
     public GameObject grindButtonLabel;
-    
+
 
     void Start()
     {
         buttonGrind.gameObject.SetActive(false);
         grindButtonLabel.gameObject.SetActive(false);
-
-    }
-
-    void Update()
-    {
 
     }
 

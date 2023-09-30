@@ -6,8 +6,7 @@ public class Stream : MonoBehaviour
 {
     private LineRenderer lineRenderer = null;
     private ParticleSystem splashParticle = null;
-
-    private Coroutine pourRoutine= null;
+    private Coroutine pourRoutine = null;
     private Vector3 targetPosition = Vector3.zero;
 
     private void Awake()
@@ -28,7 +27,7 @@ public class Stream : MonoBehaviour
         pourRoutine = StartCoroutine(BeginPour());
     }
 
-    private IEnumerator BeginPour() 
+    private IEnumerator BeginPour()
     {
         while (gameObject.activeSelf)
         {
@@ -49,10 +48,10 @@ public class Stream : MonoBehaviour
 
     private IEnumerator EndPour()
     {
-        while (!HasReachedPosition(0,targetPosition))
+        while (!HasReachedPosition(0, targetPosition))
         {
             AnimateToPosition(0, targetPosition);
-            AnimateToPosition(1,targetPosition);
+            AnimateToPosition(1, targetPosition);
 
             yield return null;
         }
@@ -64,7 +63,7 @@ public class Stream : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, Vector3.down);
-        
+
         Physics.Raycast(ray, out hit, 6.0f);
         Vector3 endPoint = hit.collider ? hit.point : ray.GetPoint(6.0f);
 

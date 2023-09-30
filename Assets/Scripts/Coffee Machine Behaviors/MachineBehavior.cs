@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MachineBehavior : MonoBehaviour
 {
-    public bool isWandAttached;
     public GameObject wand;
     public GameObject buttonLeft;
     public GameObject buttonRight;
+    public bool isWandAttached;
 
     void Start()
     {

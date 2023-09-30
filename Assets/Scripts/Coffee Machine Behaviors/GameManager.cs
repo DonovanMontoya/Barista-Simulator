@@ -7,8 +7,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameManager : MonoBehaviour
 {
-    //public XRRayInteractor rHand;
-    //public XRRayInteractor lHand;
     [SerializeField] CoffeeOrderer coffeeOrderer;
     [SerializeField] GrinderBehavior grinderBehavior;
     [SerializeField] Interaction interaction;
@@ -17,23 +15,33 @@ public class GameManager : MonoBehaviour
     [SerializeField] MachineBehavior machineBehavior;
 
     public string currentTask;
-
-
     public bool holdingWand = false;
 
 
-        [SerializeField] public GameObject whereToPlaceWandGrinder = new GameObject();
-        [SerializeField] public GameObject whereToPlaceWandEsspresso = new GameObject();
-        [SerializeField] public GameObject whereToPlaceMilkMug = new GameObject();
-        [SerializeField] public GameObject whereToPlaceMugMaster = new GameObject(); //refers to main animated mug
-        [SerializeField] public GameObject pressThisButtonE1 = new GameObject();
-        [SerializeField] public GameObject pressThisButtonE2 = new GameObject();
-        [SerializeField] public GameObject pressThisButtonGrindFine = new GameObject();
-        [SerializeField] public GameObject pressThisButtonGrindGrind = new GameObject();
-        [SerializeField] public GameObject pressThisButtonMilk = new GameObject();
-        [SerializeField] public GameObject pressCheckOrderButton = new GameObject();
-    
+    [SerializeField] public GameObject whereToPlaceWandGrinder;
+    [SerializeField] public GameObject whereToPlaceWandEsspresso;
+    [SerializeField] public GameObject whereToPlaceMilkMug;
+    [SerializeField] public GameObject whereToPlaceMugMaster;
+    [SerializeField] public GameObject pressThisButtonE1;
+    [SerializeField] public GameObject pressThisButtonE2;
+    [SerializeField] public GameObject pressThisButtonGrindFine;
+    [SerializeField] public GameObject pressThisButtonGrindGrind;
+    [SerializeField] public GameObject pressThisButtonMilk;
+    [SerializeField] public GameObject pressCheckOrderButton;
 
+    public void Awake()
+    {
+        whereToPlaceWandGrinder = new GameObject();
+        whereToPlaceWandEsspresso = new GameObject();
+        whereToPlaceMilkMug = new GameObject();
+        whereToPlaceMugMaster = new GameObject();
+        pressThisButtonE1 = new GameObject();
+        pressThisButtonE2 = new GameObject();
+        pressThisButtonGrindFine = new GameObject();
+        pressThisButtonGrindGrind = new GameObject();
+        pressThisButtonMilk = new GameObject();
+        pressCheckOrderButton = new GameObject();
+    }
     public void Update()
     {
         //for learning mode, checking what task we are on to implement code.
@@ -60,7 +68,7 @@ public class GameManager : MonoBehaviour
                 //machine behavior iswandAttached is specific to the espresso machine
                 if (machineBehavior.isWandAttached && coffeeOrderer.drinkName == "Espresso-Shot") //check if wand is in the espresso machone & if so, turn on correct button highlight
                 {
-                    pressThisButtonE1.SetActive(true); 
+                    pressThisButtonE1.SetActive(true);
                     pressThisButtonE2.SetActive(false);
                 }
                 else
@@ -71,7 +79,7 @@ public class GameManager : MonoBehaviour
                 if (interaction.cupHasEspresso && coffeeOrderer.drinkName == "Espresso-Shot")
                 {
                     //Finishes espresso tutorial highlights
-                    pressThisButtonE1.SetActive(false); 
+                    pressThisButtonE1.SetActive(false);
                     whereToPlaceMugMaster.SetActive(false);
 
                     currentTask = "checkOrder";
@@ -81,7 +89,7 @@ public class GameManager : MonoBehaviour
                     currentTask = "getMilk";
                 }
                 break;
-            case "getMilk": 
+            case "getMilk":
                 getMilkSetup(); //sets up milk step
                 if (moomooMilker.hasMilk)//once milk is attained turn off highlight
                 {

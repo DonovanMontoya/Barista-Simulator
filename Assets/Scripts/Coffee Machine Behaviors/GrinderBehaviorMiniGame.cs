@@ -49,7 +49,7 @@ public class GrinderBehaviorMiniGame : MonoBehaviour
     public List<GameObject> bigdummylist;
     //make copy of list, 
 
-    
+
     private void Start()
     {
         currentGrindTextFine.SetActive(false);
@@ -108,8 +108,8 @@ public class GrinderBehaviorMiniGame : MonoBehaviour
         /*list.add/remove
         List<GameObject> bigListOfSmallDrinks = new List<GameObject>();
         */
-        var used = new HashSet<int>() {};
-        Random rand = new Random();
+        var used = new HashSet<int>() { };
+
         int DrinkIndexNum = Random.Range(0, 9 - used.Count);
 
         Debug.Log(DrinkIndexNum);
@@ -117,87 +117,71 @@ public class GrinderBehaviorMiniGame : MonoBehaviour
 
         // [0 = Fine] , [1 = Medium] [2 = Course]
 
-        //0 Cold Brew
-        if (DrinkIndexNum == 0)
+        switch (DrinkIndexNum)
         {
-            SetGrindValue = 2;
-            currentGrindTaskColdBrew.SetActive(true);
-            coldBrewDesc.SetActive(true);
-            used.Add(0);
-        }
-        //1 Espresso
-        if (DrinkIndexNum == 1)
-        {
-            SetGrindValue = 0;
-            currentGrindTaskEspresso.SetActive(true);
-            espressoDesc.SetActive(true);
-            used.Add(1);
-        }
-        //2 French Press
-        if (DrinkIndexNum == 2)
-        {
-            SetGrindValue = 2;
-            currentGrindTaskFrenchPress.SetActive(true);
-            frenchPressDesc.SetActive(true);
-            used.Add(2);
-        }
-        //3 Latte
-        if (DrinkIndexNum == 3)
-        {
-            SetGrindValue = 0;
-            currentGrindTaskLatte.SetActive(true);
-            latteDesc.SetActive(true);
-            used.Add(3);
-        }
-        //4 Pour Over
-        if (DrinkIndexNum == 4)
-        {
-            SetGrindValue = 1;
-            currentGrindTaskPourOver.SetActive(true);
-            pourOverDesc.SetActive(true);
-            used.Add(4);
-        }
-        //5 Espresso Verte
-        if (DrinkIndexNum == 5)
-        {
-            SetGrindValue = 0;
-            currentGrindEspressoVerte.SetActive(true);
-            espressoVerteDesc.SetActive(true);
-            used.Add(5);
-        }
-        //6 Cappuccino
-        if (DrinkIndexNum == 6)
-        {
-            SetGrindValue = 0;
-            currentGrindEspressoVerte.SetActive(true);
-            espressoVerteDesc.SetActive(true);
-            used.Add(6);
-        }
-        //7 Iced Coffee
-        if (DrinkIndexNum == 7)
-        {
-            SetGrindValue = 1;
-            currentGrindIcedCoffee.SetActive(true);
-            icedCoffeeDesc.SetActive(true);
-            used.Add(7);
-        }
-        //8 Espresso Mocha
-        if (DrinkIndexNum == 8)
-        {
-            SetGrindValue = 0;
-            currentGrindMocha.SetActive(true);
-            mochaDesc.SetActive(true);
-            used.Add(8);
-        }
-        //9 Americano
-        if (DrinkIndexNum == 9)
-        {
-            SetGrindValue = 1;
-            currentGrindAmericano.SetActive(true);
-            americanoDesc.SetActive(true);
-            used.Add(9);
+            case 0: // Cold Brew
+                SetGrindValue = 2;
+                currentGrindTaskColdBrew.SetActive(true);
+                coldBrewDesc.SetActive(true);
+                used.Add(0);
+                break;
+            case 1: // Espresso
+                SetGrindValue = 0;
+                currentGrindTaskEspresso.SetActive(true);
+                espressoDesc.SetActive(true);
+                used.Add(1);
+                break;
+            case 2: // French Press
+                SetGrindValue = 2;
+                currentGrindTaskFrenchPress.SetActive(true);
+                frenchPressDesc.SetActive(true);
+                used.Add(2);
+                break;
+            case 3: // Latte
+                SetGrindValue = 0;
+                currentGrindTaskLatte.SetActive(true);
+                latteDesc.SetActive(true);
+                used.Add(3);
+                break;
+            case 4: // Pour Over
+                SetGrindValue = 1;
+                currentGrindTaskPourOver.SetActive(true);
+                pourOverDesc.SetActive(true);
+                used.Add(4);
+                break;
+            case 5: // Espresso Verte
+                SetGrindValue = 0;
+                currentGrindEspressoVerte.SetActive(true);
+                espressoVerteDesc.SetActive(true);
+                used.Add(5);
+                break;
+            case 6: // Cappuccino
+                SetGrindValue = 0;
+                currentGrindEspressoVerte.SetActive(true);
+                espressoVerteDesc.SetActive(true);
+                used.Add(6);
+                break;
+            case 7: // Iced Coffee
+                SetGrindValue = 1;
+                currentGrindIcedCoffee.SetActive(true);
+                icedCoffeeDesc.SetActive(true);
+                used.Add(7);
+                break;
+            case 8: // Espresso Mocha
+                SetGrindValue = 0;
+                currentGrindMocha.SetActive(true);
+                mochaDesc.SetActive(true);
+                used.Add(8);
+                break;
+            case 9: // Americano
+                SetGrindValue = 1;
+                currentGrindAmericano.SetActive(true);
+                americanoDesc.SetActive(true);
+                used.Add(9);
+                break;
         }
     }
+
 
     public void ChangeGrind(int val)
     {
@@ -216,7 +200,7 @@ public class GrinderBehaviorMiniGame : MonoBehaviour
         currentGrindTextFine.SetActive(true);
         currentGrindTextMedium.SetActive(false);
         currentGrindTextCourse.SetActive(false);
-       // Debug.Log("Grinder Set To Fine, Or grinderValue " + grindValue);
+        // Debug.Log("Grinder Set To Fine, Or grinderValue " + grindValue);
     }
 
     public void SetGrindValueMedium()
@@ -227,7 +211,7 @@ public class GrinderBehaviorMiniGame : MonoBehaviour
         currentGrindTextFine.SetActive(false);
         currentGrindTextMedium.SetActive(true);
         currentGrindTextCourse.SetActive(false);
-       // Debug.Log("Grinder Set To Medium, Or grinderValue " + grindValue);
+        // Debug.Log("Grinder Set To Medium, Or grinderValue " + grindValue);
     }
 
     public void SetGrindValueCourse()
@@ -238,7 +222,7 @@ public class GrinderBehaviorMiniGame : MonoBehaviour
         currentGrindTextFine.SetActive(false);
         currentGrindTextMedium.SetActive(false);
         currentGrindTextCourse.SetActive(true);
-       // Debug.Log("Grinder Set To Course, Or grinderValue " + grindValue);
+        // Debug.Log("Grinder Set To Course, Or grinderValue " + grindValue);
     }
     public void Grind()
     {
@@ -251,7 +235,7 @@ public class GrinderBehaviorMiniGame : MonoBehaviour
             buttonReset.SetActive(true);
             resetTag.SetActive(true);
             score += 1;
-           // Debug.Log("CORRECT");
+            // Debug.Log("CORRECT");
         }
         else
         {
@@ -259,8 +243,8 @@ public class GrinderBehaviorMiniGame : MonoBehaviour
             buttonReset.SetActive(true);
             resetTag.SetActive(true);
             loseScore += 1;
-           // Debug.Log("FALSE");
+            // Debug.Log("FALSE");
         }
-       // Debug.Log("Grinder is Grinding, grinderValue is " + grindValue);
+        // Debug.Log("Grinder is Grinding, grinderValue is " + grindValue);
     }
 }

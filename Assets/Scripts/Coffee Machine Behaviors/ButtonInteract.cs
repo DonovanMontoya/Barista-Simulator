@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-//using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.Events;
@@ -20,14 +19,14 @@ public class ButtonInteract : XRBaseInteractable
     protected override void Awake()
     {
         base.Awake();
-        onHoverEnter.AddListener(StartPress);
-        onHoverExit.AddListener(EndPress);
+        onHoverEntered.AddListener(StartPress);
+        onHoverExited.AddListener(EndPress);
     }
 
     private void OnDestroy()
     {
-        onHoverEnter.RemoveListener(StartPress);
-        onHoverExit.RemoveListener(EndPress);
+        onHoverEntered.RemoveListener(StartPress);
+        onHoverExited.RemoveListener(EndPress);
     }
 
     private void StartPress(XRBaseInteractor interactor)

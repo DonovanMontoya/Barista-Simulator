@@ -64,7 +64,6 @@ public class CoffeeOrderer : MonoBehaviour
         espressoOrderImage.SetActive(false);
         latterOrderImage.SetActive(false);
 
-        Random rand = new Random();
         int DrinkIndexNum = Random.Range(0, 3);
 
         if (DrinkIndexNum == 0)

@@ -14,7 +14,6 @@ public class MugFluidSim : MonoBehaviour
     void Update()
     {
         Slosh();
-
         mLiquidMesh.transform.Rotate(Vector3.up * mRotateSpeed * Time.deltaTime, Space.Self);
     }
 
@@ -34,7 +33,7 @@ public class MugFluidSim : MonoBehaviour
         mLiquid.transform.localEulerAngles = finalRotation;
     }
 
-    private float ClampRotationValue(float value, float difference) 
+    private float ClampRotationValue(float value, float difference)
     {
         float returnValue = 0.0f;
 
