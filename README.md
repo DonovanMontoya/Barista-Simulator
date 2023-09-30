@@ -1,6 +1,4 @@
 # Barista-Simulator
-*Donovan Montoya - [GIMM] Individual Virtual Reality Game Repository*
+*Donovan Montoya
 
-My game is a Virtual Reality barista simulator game which allows the player to learn about coffee in a fun and unique way.
-
-This game works to highlight some of the interesting gameplay features enabled in a Virtual Reality environment.
+It's a robot coffee game that will never get updates. <3
