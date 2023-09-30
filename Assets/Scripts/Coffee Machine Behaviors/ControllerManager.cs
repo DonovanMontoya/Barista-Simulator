@@ -36,7 +36,7 @@ public class ControllerManager : MonoBehaviour
     /// <summary>
     /// The Game Object which represents the left hand for normal interaction purposes.
     /// </summary>
-    public GameObject leftBaseController {  get { return m_LeftBaseController;  } set { m_LeftBaseController = value; } }
+    public GameObject leftBaseController { get { return m_LeftBaseController; } set { m_LeftBaseController = value; } }
 
     [SerializeField]
     [Tooltip("The Game Object which represents the left hand when teleporting.")]
@@ -102,7 +102,7 @@ public class ControllerManager : MonoBehaviour
                 m_LineRenderer = m_GO.GetComponent<XRInteractorLineVisual>();
                 m_Interactor = m_GO.GetComponent<XRBaseInteractor>();
 
-                Leave();               
+                Leave();
             }
         }
 
@@ -138,7 +138,7 @@ public class ControllerManager : MonoBehaviour
             {
                 m_XRController.enableInputActions = false;
             }
-            if(m_Interactor)
+            if (m_Interactor)
             {
                 m_Interactor.enabled = false;
             }
@@ -158,7 +158,7 @@ public class ControllerManager : MonoBehaviour
         /// <summary>
         /// the Teleport state is used to interact with teleport interactors and queue teleportations.
         /// </summary>
-        Teleport = 1,        
+        Teleport = 1,
         /// <summary>
         /// Maximum sentinel
         /// </summary>
@@ -188,10 +188,10 @@ public class ControllerManager : MonoBehaviour
         /// </summary>
         public void ClearAll()
         {
-            if(m_Interactors == null)
+            if (m_Interactors == null)
                 return;
 
-            for(int i = 0; i < (int)ControllerStates.MAX; ++i)
+            for (int i = 0; i < (int)ControllerStates.MAX; ++i)
             {
                 m_Interactors[i].Leave();
             }
@@ -224,11 +224,11 @@ public class ControllerManager : MonoBehaviour
             {
                 if (m_State != ControllerStates.MAX)
                 {
-                    m_Interactors[(int)m_State].Leave();                    
+                    m_Interactors[(int)m_State].Leave();
                 }
 
-                m_State = nextState;           
-                m_Interactors[(int)m_State].Enter();           
+                m_State = nextState;
+                m_Interactors[(int)m_State].Enter();
             }
         }
     }
@@ -271,7 +271,7 @@ public class ControllerManager : MonoBehaviour
         if (connectedDevice.isValid)
         {
 #if UNITY_2019_3_OR_NEWER
-            if((connectedDevice.characteristics & InputDeviceCharacteristics.Left) != 0)
+            if ((connectedDevice.characteristics & InputDeviceCharacteristics.Left) != 0)
 #else
             if (connectedDevice.role == InputDeviceRole.LeftHanded)
 #endif
@@ -286,9 +286,9 @@ public class ControllerManager : MonoBehaviour
             else if (connectedDevice.role == InputDeviceRole.RightHanded)
 #endif
             {
-                m_RightController = connectedDevice;          
+                m_RightController = connectedDevice;
                 m_RightControllerState.ClearAll();
-                m_RightControllerState.SetState(ControllerStates.Select);                                
+                m_RightControllerState.SetState(ControllerStates.Select);
             }
         }
     }
@@ -298,7 +298,7 @@ public class ControllerManager : MonoBehaviour
         if (m_LeftController.isValid)
         {
             bool activated = false;
-            for(int i = 0; i < m_ActivationButtons.Count; i++)
+            for (int i = 0; i < m_ActivationButtons.Count; i++)
             {
                 m_LeftController.IsPressed(m_ActivationButtons[i], out bool value);
                 activated |= value;
@@ -324,7 +324,7 @@ public class ControllerManager : MonoBehaviour
             {
                 m_LeftControllerState.SetState(ControllerStates.Select);
 
-                if(!activated)
+                if (!activated)
                     m_LeftTeleportDeactivated = false;
             }
         }

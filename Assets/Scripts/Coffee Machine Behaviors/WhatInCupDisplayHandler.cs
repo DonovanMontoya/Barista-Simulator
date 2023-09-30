@@ -16,10 +16,13 @@ public class WhatInCupDisplayHandler : MonoBehaviour
 
     public void UpdateList()
     {
-        whatsInCupList.text = "Steamed Milk: " + coffeeOrder.ingredientTable[Ingredients.SteamedMilk].ToString() +
-         " Double Espresso: " + coffeeOrder.ingredientTable[Ingredients.EspressoDouble].ToString() +
-        " Single Espresso: " + coffeeOrder.ingredientTable[Ingredients.EspressoSingle].ToString();
+        string steamedMilk = coffeeOrder.ingredientTable.ContainsKey(Ingredients.SteamedMilk) ? coffeeOrder.ingredientTable[Ingredients.SteamedMilk].ToString() : "0";
+        string doubleEspresso = coffeeOrder.ingredientTable.ContainsKey(Ingredients.EspressoDouble) ? coffeeOrder.ingredientTable[Ingredients.EspressoDouble].ToString() : "0";
+        string singleEspresso = coffeeOrder.ingredientTable.ContainsKey(Ingredients.EspressoSingle) ? coffeeOrder.ingredientTable[Ingredients.EspressoSingle].ToString() : "0";
 
+        whatsInCupList.text = "Steamed Milk: " + steamedMilk +
+         " Double Espresso: " + doubleEspresso +
+        " Single Espresso: " + singleEspresso;
     }
 
 }

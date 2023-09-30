@@ -8,11 +8,8 @@ public class EspressoStreamDetector : MonoBehaviour
     public GameObject streamPrefab = null;
 
     private bool endTimerEnabled = false;
-
     private Stream currentStream = null;
-
     public float endTimer = 60;
-
 
     private void Update()
     {
@@ -42,7 +39,6 @@ public class EspressoStreamDetector : MonoBehaviour
     {
         currentStream.End();
         currentStream = null;
-        //resets these for re-use
         endTimerEnabled = false;
         endTimer = 60f;
     }

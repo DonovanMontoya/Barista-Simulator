@@ -9,26 +9,21 @@ using TMPro;
 
 public class GrinderBehavior : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     public GrinderSocket gS;
-
-    public static int grindValue;
-    public static int matchGrindValue;
-    public static int SetGrindValue;
-
-    //trigger just for tutorial level
-    public string grindValueString;
-
-
     public GameObject currentGrindTextFine;
     public GameObject currentGrindTextMedium;
     public GameObject currentGrindTextCourse;
     public GameObject espressoWand;
     public GameObject espressoWandEspresso;
-    [SerializeField] GameManager gameManager;
+    public static int grindValue;
+    public static int matchGrindValue;
+    public static int SetGrindValue;
+
+    // trigger just for tutorial level
+    public string grindValueString;
 
     public bool wandHasEspresso = false;
-
-
 
     private void Start()
     {
@@ -37,11 +32,6 @@ public class GrinderBehavior : MonoBehaviour
         currentGrindTextCourse.SetActive(false);
 
     }
-    public void Update()
-    {
-        
-    }
-
     public void ChangeGrind(int val)
     {
         grindValue = val;
@@ -107,7 +97,5 @@ public class GrinderBehavior : MonoBehaviour
             wandHasEspresso = false;
             Debug.Log("Does the Wand have espresso after push: " + wandHasEspresso);
         }
-       
-        
     }
 }

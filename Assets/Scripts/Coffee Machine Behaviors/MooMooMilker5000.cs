@@ -16,7 +16,7 @@ public class MooMooMilker5000 : MonoBehaviour
 
     public Animator anim;
 
-    
+
     public void AddSteamedMilk()
     {
         anim.SetTrigger("StartSqeeze");
@@ -35,7 +35,7 @@ public class MooMooMilker5000 : MonoBehaviour
             liquidRenderer.material.SetColor("_Color", milkColor);
             interaction.cupLiquid.SetActive(true);
         }
-            foreach (KeyValuePair<Ingredients, int> kvp in coffeeOrder.ingredientTable)
+        foreach (KeyValuePair<Ingredients, int> kvp in coffeeOrder.ingredientTable)
         {
             Debug.Log(kvp.Key);
             Debug.Log(kvp.Value);

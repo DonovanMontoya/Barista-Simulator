@@ -6,17 +6,15 @@ public class Interaction : MonoBehaviour
 {
     public GrinderBehavior gB;
     [SerializeField] public CoffeeOrderer coffeeOrder;
-    public WhatInCupDisplayHandler cupHandler;
     [SerializeField] GameManager gameManager;
 
+    public WhatInCupDisplayHandler cupHandler;
     public GameObject cupLiquid;
-
     public Color Espresso;
-
     public bool cupHasEspresso;
-
     public bool machineRunning = false;
     public bool machineRan = false;
+
     public List<string> whatsInCupList = new List<string>();
 
     public void pressButtonBool()
@@ -35,7 +33,7 @@ public class Interaction : MonoBehaviour
         {
             gameManager.whereToPlaceMilkMug.SetActive(false);
             gameManager.whereToPlaceWandEsspresso.SetActive(false);
-            gameManager.whereToPlaceWandGrinder.SetActive(false);      
+            gameManager.whereToPlaceWandGrinder.SetActive(false);
         }
     }
 
@@ -49,8 +47,9 @@ public class Interaction : MonoBehaviour
             cupHasEspresso = true;
             OffEsspressoMachine();
             machineRan = true;
-            //shows liquid visual object
 
+            // shows liquid visual object 
+            // TODO -- offload this to a the StreamDetector Script
             var liquidRenderer = cupLiquid.GetComponent<Renderer>();
             liquidRenderer.material.SetColor("_Color", Espresso);
             cupLiquid.SetActive(true);
@@ -65,14 +64,15 @@ public class Interaction : MonoBehaviour
     {
         if (gB.wandHasEspresso == true)
         {
-           Debug.Log("Machine Run - Double");
+            Debug.Log("Machine Run - Double");
             coffeeOrder.ingredientTable[Ingredients.EspressoDouble] += 1;
             cupHandler.UpdateList();
             cupHasEspresso = true;
             OffEsspressoMachine();
-            machineRan= true;
-            //shows liquid visual object
+            machineRan = true;
 
+            // shows liquid visual object 
+            // TODO -- offload this to a the StreamDetector Script
             var liquidRenderer = cupLiquid.GetComponent<Renderer>();
             liquidRenderer.material.SetColor("_Color", Espresso);
             cupLiquid.SetActive(true);
@@ -93,6 +93,6 @@ public class Interaction : MonoBehaviour
     {
         Debug.Log("Machine Off");
         machineRunning = false;
-        
+
     }
 }

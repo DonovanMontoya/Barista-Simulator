@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Text;
 
 public class OrderCheck : MonoBehaviour
 {
     [SerializeField] public CoffeeOrderer coffeeOrder;
+    [SerializeField] public Animator roboAnim;
+    [SerializeField] GameObject mugLiquid;
+
     public WhatInCupDisplayHandler cupHandler;
     public TextMeshProUGUI robotsOrderText;
     public TextMeshProUGUI correctCoffeesText;
-    [SerializeField] public Animator roboAnim;
-    [SerializeField] GameObject mugLiquid;
+
 
     CoffeeOrderer coffeeController;
 
@@ -24,49 +27,41 @@ public class OrderCheck : MonoBehaviour
         correctCoffies = data.correctCoffees;
     }
 
-    public void CheckDrink()
+    public void CheckOrder()
     {
-     // We assume the order is correct so that we can compair --> easier
-        bool isDrinkCorrect = false;
-
-
-        // This Loop compairs the ingrediants between the order and order requirements
-
-        /* this loop sucks because its returning for each value and not checking the group
-            I.E. If it will always return true or false based on the last value. */
-
-        int hasWrongIngredient = 0; //maybe will fix broken loop    UPDATE - This totally fixed that shit.
+        bool isDrinkCorrect = true;
+        int hasWrongIngredient = 0;
+        StringBuilder orderTextBuilder = new StringBuilder();
 
         foreach (var ingredient in coffeeOrder.recipeTable.Keys)
         {
-            if (coffeeOrder.recipeTable[ingredient] != coffeeOrder.ingredientTable[ingredient])
+            int ingredientCount = 0;
+            if (coffeeOrder.ingredientTable.TryGetValue(ingredient, out ingredientCount))
             {
-                isDrinkCorrect = false;
-                hasWrongIngredient++;
-                robotsOrderText.text = "I may not have taste buds, but my analysis says this is incorrect...";
-                roboAnim.ResetTrigger("correctOrder");
-                roboAnim.SetTrigger("wrongOrder");
+                if (ingredientCount != coffeeOrder.recipeTable[ingredient])
+                {
+                    isDrinkCorrect = false;
+                    hasWrongIngredient++;
+                    orderTextBuilder.AppendLine($"I may not have taste buds, but my analysis says {ingredient} is incorrect...");
+                    roboAnim.ResetTrigger("correctOrder");
+                    roboAnim.SetTrigger("wrongOrder");
+                }
             }
-            else
-            {
-                isDrinkCorrect= true;
-            }
-            Debug.Log(ingredient);
         }
-        Debug.Log(isDrinkCorrect);
 
-        if (isDrinkCorrect == true && hasWrongIngredient <= 0)
+        if (isDrinkCorrect && hasWrongIngredient <= 0)
         {
-            robotsOrderText.text = "Thats Perfect! Thank you human.";
+            orderTextBuilder.AppendLine("Thats Perfect! Thank you human.");
             roboAnim.ResetTrigger("wrongOrder");
             roboAnim.SetTrigger("correctOrder");
             correctCoffies += 1;
         }
+
+        robotsOrderText.text = orderTextBuilder.ToString().TrimEnd();
         SaveTotalCorrectCoffees();
-        //coffeeController.SelectRandomOrder();
     }
 
-    public void EmptyCup() //manually sets values to 0
+    public void EmptyCup()
     {
         coffeeOrder.ingredientTable[Ingredients.EspressoSingle] = 0;
         coffeeOrder.ingredientTable[Ingredients.EspressoDouble] = 0;
@@ -79,7 +74,6 @@ public class OrderCheck : MonoBehaviour
 
     public void ResetScene()
     {
-       // EmptyCup();
         SceneManager.LoadScene("Main");
     }
 
