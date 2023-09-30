@@ -1,4 +1,0 @@
-repository "Barista Simulator@Donovans_Projects@cloud"
-  path "/"
-    smartbranch "/main" changeset "59"                          
-     
